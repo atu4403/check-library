@@ -17,7 +17,7 @@ The Check library is a Python-based assertion framework designed to simplify the
 You can install the Check library via pip:
 
 ```bash
-pip install check-library
+pip install che
 ```
 
 ## Quick Start
@@ -25,7 +25,7 @@ pip install check-library
 Here is a simple example demonstrating some of the assertion methods:
 
 ```python
-from check-library import Check
+from che import Check
 
 # Initialize the Check instance
 check = Check()
@@ -43,4 +43,4 @@ check.assert_calls(3)
 
 For more detailed information on using the Check library, please refer to the official documentation.
 
-[check-library Docs](https://atu4403.github.io/check-library)
+[Check Docs](https://atu4403.github.io/che)

@@ -1,0 +1,3 @@
+pdoc --html --output-dir=docs src/che  --force &&
+mv docs/che/* docs/ &&
+rm -r docs/che

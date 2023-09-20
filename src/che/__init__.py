@@ -1,4 +1,4 @@
 """
 .. include:: ../../README.md
 """
-from .check import Check
+from .che import Check

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>check-library.check API documentation</title>
+<title>che.che API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,7 +19,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>check-library.check</code></h1>
+<h1 class="title">Module <code>che.che</code></h1>
 </header>
 <section id="section-intro">
 <details class="source">
@@ -893,7 +893,7 @@ if __name__ == &#34;__main__&#34;:
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="check-library.check.Check"><code class="flex name class">
+<dt id="che.che.Check"><code class="flex name class">
 <span>class <span class="ident">Check</span></span>
 </code></dt>
 <dd>
@@ -1761,7 +1761,7 @@ AssertionError: Numbers are not equal!
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="check-library.check.Check.In"><code class="name flex">
+<dt id="che.che.Check.In"><code class="name flex">
 <span>def <span class="ident">In</span></span>(<span>self, sub, main, msg=None)</span>
 </code></dt>
 <dd>
@@ -1814,7 +1814,7 @@ AssertionError: Object not in iterable
     assert sub in main, msg or &#34;Object not in iterable&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.assert_calls"><code class="name flex">
+<dt id="che.che.Check.assert_calls"><code class="name flex">
 <span>def <span class="ident">assert_calls</span></span>(<span>self, expected, msg=None)</span>
 </code></dt>
 <dd>
@@ -1863,7 +1863,7 @@ AssertionError: Object not in iterable
     )</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.deepEqual"><code class="name flex">
+<dt id="che.che.Check.deepEqual"><code class="name flex">
 <span>def <span class="ident">deepEqual</span></span>(<span>self, obj1, obj2, msg=None)</span>
 </code></dt>
 <dd>
@@ -1920,7 +1920,7 @@ AssertionError: Objects are not the same (not identical)
     assert obj1 is obj2, msg or &#34;Objects are not the same (not identical)&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.equal"><code class="name flex">
+<dt id="che.che.Check.equal"><code class="name flex">
 <span>def <span class="ident">equal</span></span>(<span>self, obj1, obj2, msg=None)</span>
 </code></dt>
 <dd>
@@ -1973,7 +1973,7 @@ AssertionError: Objects are not equal
     assert obj1 == obj2, msg or &#34;Objects are not equal&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isAbove"><code class="name flex">
+<dt id="che.che.Check.isAbove"><code class="name flex">
 <span>def <span class="ident">isAbove</span></span>(<span>self, obj1, obj2, msg=None)</span>
 </code></dt>
 <dd>
@@ -2026,7 +2026,7 @@ AssertionError: Object is below
     assert obj1 &gt; obj2, msg or &#34;Object is below&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isAboveOrEqual"><code class="name flex">
+<dt id="che.che.Check.isAboveOrEqual"><code class="name flex">
 <span>def <span class="ident">isAboveOrEqual</span></span>(<span>self, obj1, obj2, msg=None)</span>
 </code></dt>
 <dd>
@@ -2079,7 +2079,7 @@ AssertionError: Object is below
     assert obj1 &gt;= obj2, msg or &#34;Object is below&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isBelow"><code class="name flex">
+<dt id="che.che.Check.isBelow"><code class="name flex">
 <span>def <span class="ident">isBelow</span></span>(<span>self, obj1, obj2, msg=None)</span>
 </code></dt>
 <dd>
@@ -2132,7 +2132,7 @@ AssertionError: Object is above
     assert obj1 &lt; obj2, msg or &#34;Object is above&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isBelowOrEqual"><code class="name flex">
+<dt id="che.che.Check.isBelowOrEqual"><code class="name flex">
 <span>def <span class="ident">isBelowOrEqual</span></span>(<span>self, obj1, obj2, msg=None)</span>
 </code></dt>
 <dd>
@@ -2185,7 +2185,7 @@ AssertionError: Object is above
     assert obj1 &lt;= obj2, msg or &#34;Object is above&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isBinary"><code class="name flex">
+<dt id="che.che.Check.isBinary"><code class="name flex">
 <span>def <span class="ident">isBinary</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2235,7 +2235,7 @@ AssertionError: Object is not a binary string
     assert isinstance(obj, bytes), msg or &#34;Object is not a binary string&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isBool"><code class="name flex">
+<dt id="che.che.Check.isBool"><code class="name flex">
 <span>def <span class="ident">isBool</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2285,7 +2285,7 @@ AssertionError: Object is not a boolean
     assert isinstance(obj, bool), msg or &#34;Object is not a boolean&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isCallable"><code class="name flex">
+<dt id="che.che.Check.isCallable"><code class="name flex">
 <span>def <span class="ident">isCallable</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2335,7 +2335,7 @@ AssertionError: Object is not callable
     assert callable(obj), msg or &#34;Object is not callable&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isDict"><code class="name flex">
+<dt id="che.che.Check.isDict"><code class="name flex">
 <span>def <span class="ident">isDict</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2385,7 +2385,7 @@ AssertionError: Object is not a dict
     assert isinstance(obj, dict), msg or &#34;Object is not a dict&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isDictSubset"><code class="name flex">
+<dt id="che.che.Check.isDictSubset"><code class="name flex">
 <span>def <span class="ident">isDictSubset</span></span>(<span>self, sub_dict, main_dict, msg=None)</span>
 </code></dt>
 <dd>
@@ -2440,7 +2440,7 @@ AssertionError: sub_dict is not in main_dict
     )</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isFalse"><code class="name flex">
+<dt id="che.che.Check.isFalse"><code class="name flex">
 <span>def <span class="ident">isFalse</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2490,7 +2490,7 @@ AssertionError: Object not False
     assert obj is False, msg or &#34;Object not False&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isFloat"><code class="name flex">
+<dt id="che.che.Check.isFloat"><code class="name flex">
 <span>def <span class="ident">isFloat</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2540,7 +2540,7 @@ AssertionError: Object is not a float
     assert isinstance(obj, float), msg or &#34;Object is not a float&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isInf"><code class="name flex">
+<dt id="che.che.Check.isInf"><code class="name flex">
 <span>def <span class="ident">isInf</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2590,7 +2590,7 @@ AssertionError: Object is not Inf
     assert math.isinf(obj), msg or &#34;Object is not Inf&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isInt"><code class="name flex">
+<dt id="che.che.Check.isInt"><code class="name flex">
 <span>def <span class="ident">isInt</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2640,7 +2640,7 @@ AssertionError: Object is not an integer
     assert isinstance(obj, int), msg or &#34;Object is not an integer&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isList"><code class="name flex">
+<dt id="che.che.Check.isList"><code class="name flex">
 <span>def <span class="ident">isList</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2690,7 +2690,7 @@ AssertionError: Object is not a list
     assert isinstance(obj, list), msg or &#34;Object is not a list&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isListSubset"><code class="name flex">
+<dt id="che.che.Check.isListSubset"><code class="name flex">
 <span>def <span class="ident">isListSubset</span></span>(<span>self, sub_list, main_list, msg=None)</span>
 </code></dt>
 <dd>
@@ -2746,7 +2746,7 @@ AssertionError: sub_list is not in main_list
     )</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isNan"><code class="name flex">
+<dt id="che.che.Check.isNan"><code class="name flex">
 <span>def <span class="ident">isNan</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2798,7 +2798,7 @@ AssertionError: Object is not NaN
     assert math.isnan(obj), msg or &#34;Object is not NaN&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isNone"><code class="name flex">
+<dt id="che.che.Check.isNone"><code class="name flex">
 <span>def <span class="ident">isNone</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2848,7 +2848,7 @@ AssertionError: Object is not None
     assert obj is None, msg or &#34;Object is not None&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isNotInf"><code class="name flex">
+<dt id="che.che.Check.isNotInf"><code class="name flex">
 <span>def <span class="ident">isNotInf</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2900,7 +2900,7 @@ AssertionError: Object is infinite
     assert not math.isinf(obj), msg or &#34;Object is infinite&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isNotNan"><code class="name flex">
+<dt id="che.che.Check.isNotNan"><code class="name flex">
 <span>def <span class="ident">isNotNan</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -2952,7 +2952,7 @@ AssertionError: Object is NaN
     assert not math.isnan(obj), msg or &#34;Object is NaN&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isNotNone"><code class="name flex">
+<dt id="che.che.Check.isNotNone"><code class="name flex">
 <span>def <span class="ident">isNotNone</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -3002,7 +3002,7 @@ AssertionError: Object is None
     assert obj is not None, msg or &#34;Object is None&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isNotOk"><code class="name flex">
+<dt id="che.che.Check.isNotOk"><code class="name flex">
 <span>def <span class="ident">isNotOk</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -3052,7 +3052,7 @@ AssertionError: Object is truthy
     assert not obj, msg or &#34;Object is truthy&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isNotZero"><code class="name flex">
+<dt id="che.che.Check.isNotZero"><code class="name flex">
 <span>def <span class="ident">isNotZero</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -3102,7 +3102,7 @@ AssertionError: Object not 0
     assert obj != 0, msg or &#34;Object is 0&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isOk"><code class="name flex">
+<dt id="che.che.Check.isOk"><code class="name flex">
 <span>def <span class="ident">isOk</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -3152,7 +3152,7 @@ AssertionError: Object is falsy
     assert obj, msg or &#34;Object is falsy&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isStr"><code class="name flex">
+<dt id="che.che.Check.isStr"><code class="name flex">
 <span>def <span class="ident">isStr</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -3202,7 +3202,7 @@ AssertionError: Object is not a string
     assert isinstance(obj, str), msg or &#34;Object is not a string&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isTrue"><code class="name flex">
+<dt id="che.che.Check.isTrue"><code class="name flex">
 <span>def <span class="ident">isTrue</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -3252,7 +3252,7 @@ AssertionError: Object not True
     assert obj is True, msg or &#34;Object not True&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.isZero"><code class="name flex">
+<dt id="che.che.Check.isZero"><code class="name flex">
 <span>def <span class="ident">isZero</span></span>(<span>self, obj, msg=None)</span>
 </code></dt>
 <dd>
@@ -3302,7 +3302,7 @@ AssertionError: Object not 0
     assert obj == 0, msg or &#34;Object not 0&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.lengthOf"><code class="name flex">
+<dt id="che.che.Check.lengthOf"><code class="name flex">
 <span>def <span class="ident">lengthOf</span></span>(<span>self, obj, length, msg=None)</span>
 </code></dt>
 <dd>
@@ -3316,7 +3316,7 @@ AssertionError: Object not 0
     assert len(obj) == length, msg or &#34;Object has wrong length&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.match"><code class="name flex">
+<dt id="che.che.Check.match"><code class="name flex">
 <span>def <span class="ident">match</span></span>(<span>self, pattern, text, msg=None)</span>
 </code></dt>
 <dd>
@@ -3371,7 +3371,7 @@ AssertionError: pattern `\d+` does not match text &lt;code&gt;abc&lt;/code&gt;
     )</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.notDeepEqual"><code class="name flex">
+<dt id="che.che.Check.notDeepEqual"><code class="name flex">
 <span>def <span class="ident">notDeepEqual</span></span>(<span>self, obj1, obj2, msg=None)</span>
 </code></dt>
 <dd>
@@ -3428,7 +3428,7 @@ AssertionError: Objects are the same (identical)
     assert obj1 is not obj2, msg or &#34;Objects are the same (identical)&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.notEqual"><code class="name flex">
+<dt id="che.che.Check.notEqual"><code class="name flex">
 <span>def <span class="ident">notEqual</span></span>(<span>self, obj1, obj2, msg=None)</span>
 </code></dt>
 <dd>
@@ -3481,7 +3481,7 @@ AssertionError: Objects are equal
     assert obj1 != obj2, msg or &#34;Objects are equal&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.notIn"><code class="name flex">
+<dt id="che.che.Check.notIn"><code class="name flex">
 <span>def <span class="ident">notIn</span></span>(<span>self, sub, main, msg=None)</span>
 </code></dt>
 <dd>
@@ -3534,7 +3534,7 @@ AssertionError: Object in iterable
     assert sub not in main, msg or &#34;Object in iterable&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.notMatch"><code class="name flex">
+<dt id="che.che.Check.notMatch"><code class="name flex">
 <span>def <span class="ident">notMatch</span></span>(<span>self, pattern, text, msg=None)</span>
 </code></dt>
 <dd>
@@ -3587,7 +3587,7 @@ AssertionError: Pattern matched
     assert not re.match(pattern, text), msg or &#34;Pattern matched&#34;</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.raises"><code class="name flex">
+<dt id="che.che.Check.raises"><code class="name flex">
 <span>def <span class="ident">raises</span></span>(<span>self, fn, exc, msg=None)</span>
 </code></dt>
 <dd>
@@ -3665,7 +3665,7 @@ AssertionError: Function did not raise exception
         raise AssertionError(msg or &#34;Function did not raise exception&#34;)</code></pre>
 </details>
 </dd>
-<dt id="check-library.check.Check.reset"><code class="name flex">
+<dt id="che.che.Check.reset"><code class="name flex">
 <span>def <span class="ident">reset</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -3711,52 +3711,52 @@ want to start a new set of assertions without creating a new instance.</p>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="check-library" href="index.html">check-library</a></code></li>
+<li><code><a title="che" href="index.html">che</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="check-library.check.Check" href="#check-library.check.Check">Check</a></code></h4>
+<h4><code><a title="che.che.Check" href="#che.che.Check">Check</a></code></h4>
 <ul class="two-column">
-<li><code><a title="check-library.check.Check.In" href="#check-library.check.Check.In">In</a></code></li>
-<li><code><a title="check-library.check.Check.assert_calls" href="#check-library.check.Check.assert_calls">assert_calls</a></code></li>
-<li><code><a title="check-library.check.Check.deepEqual" href="#check-library.check.Check.deepEqual">deepEqual</a></code></li>
-<li><code><a title="check-library.check.Check.equal" href="#check-library.check.Check.equal">equal</a></code></li>
-<li><code><a title="check-library.check.Check.isAbove" href="#check-library.check.Check.isAbove">isAbove</a></code></li>
-<li><code><a title="check-library.check.Check.isAboveOrEqual" href="#check-library.check.Check.isAboveOrEqual">isAboveOrEqual</a></code></li>
-<li><code><a title="check-library.check.Check.isBelow" href="#check-library.check.Check.isBelow">isBelow</a></code></li>
-<li><code><a title="check-library.check.Check.isBelowOrEqual" href="#check-library.check.Check.isBelowOrEqual">isBelowOrEqual</a></code></li>
-<li><code><a title="check-library.check.Check.isBinary" href="#check-library.check.Check.isBinary">isBinary</a></code></li>
-<li><code><a title="check-library.check.Check.isBool" href="#check-library.check.Check.isBool">isBool</a></code></li>
-<li><code><a title="check-library.check.Check.isCallable" href="#check-library.check.Check.isCallable">isCallable</a></code></li>
-<li><code><a title="check-library.check.Check.isDict" href="#check-library.check.Check.isDict">isDict</a></code></li>
-<li><code><a title="check-library.check.Check.isDictSubset" href="#check-library.check.Check.isDictSubset">isDictSubset</a></code></li>
-<li><code><a title="check-library.check.Check.isFalse" href="#check-library.check.Check.isFalse">isFalse</a></code></li>
-<li><code><a title="check-library.check.Check.isFloat" href="#check-library.check.Check.isFloat">isFloat</a></code></li>
-<li><code><a title="check-library.check.Check.isInf" href="#check-library.check.Check.isInf">isInf</a></code></li>
-<li><code><a title="check-library.check.Check.isInt" href="#check-library.check.Check.isInt">isInt</a></code></li>
-<li><code><a title="check-library.check.Check.isList" href="#check-library.check.Check.isList">isList</a></code></li>
-<li><code><a title="check-library.check.Check.isListSubset" href="#check-library.check.Check.isListSubset">isListSubset</a></code></li>
-<li><code><a title="check-library.check.Check.isNan" href="#check-library.check.Check.isNan">isNan</a></code></li>
-<li><code><a title="check-library.check.Check.isNone" href="#check-library.check.Check.isNone">isNone</a></code></li>
-<li><code><a title="check-library.check.Check.isNotInf" href="#check-library.check.Check.isNotInf">isNotInf</a></code></li>
-<li><code><a title="check-library.check.Check.isNotNan" href="#check-library.check.Check.isNotNan">isNotNan</a></code></li>
-<li><code><a title="check-library.check.Check.isNotNone" href="#check-library.check.Check.isNotNone">isNotNone</a></code></li>
-<li><code><a title="check-library.check.Check.isNotOk" href="#check-library.check.Check.isNotOk">isNotOk</a></code></li>
-<li><code><a title="check-library.check.Check.isNotZero" href="#check-library.check.Check.isNotZero">isNotZero</a></code></li>
-<li><code><a title="check-library.check.Check.isOk" href="#check-library.check.Check.isOk">isOk</a></code></li>
-<li><code><a title="check-library.check.Check.isStr" href="#check-library.check.Check.isStr">isStr</a></code></li>
-<li><code><a title="check-library.check.Check.isTrue" href="#check-library.check.Check.isTrue">isTrue</a></code></li>
-<li><code><a title="check-library.check.Check.isZero" href="#check-library.check.Check.isZero">isZero</a></code></li>
-<li><code><a title="check-library.check.Check.lengthOf" href="#check-library.check.Check.lengthOf">lengthOf</a></code></li>
-<li><code><a title="check-library.check.Check.match" href="#check-library.check.Check.match">match</a></code></li>
-<li><code><a title="check-library.check.Check.notDeepEqual" href="#check-library.check.Check.notDeepEqual">notDeepEqual</a></code></li>
-<li><code><a title="check-library.check.Check.notEqual" href="#check-library.check.Check.notEqual">notEqual</a></code></li>
-<li><code><a title="check-library.check.Check.notIn" href="#check-library.check.Check.notIn">notIn</a></code></li>
-<li><code><a title="check-library.check.Check.notMatch" href="#check-library.check.Check.notMatch">notMatch</a></code></li>
-<li><code><a title="check-library.check.Check.raises" href="#check-library.check.Check.raises">raises</a></code></li>
-<li><code><a title="check-library.check.Check.reset" href="#check-library.check.Check.reset">reset</a></code></li>
+<li><code><a title="che.che.Check.In" href="#che.che.Check.In">In</a></code></li>
+<li><code><a title="che.che.Check.assert_calls" href="#che.che.Check.assert_calls">assert_calls</a></code></li>
+<li><code><a title="che.che.Check.deepEqual" href="#che.che.Check.deepEqual">deepEqual</a></code></li>
+<li><code><a title="che.che.Check.equal" href="#che.che.Check.equal">equal</a></code></li>
+<li><code><a title="che.che.Check.isAbove" href="#che.che.Check.isAbove">isAbove</a></code></li>
+<li><code><a title="che.che.Check.isAboveOrEqual" href="#che.che.Check.isAboveOrEqual">isAboveOrEqual</a></code></li>
+<li><code><a title="che.che.Check.isBelow" href="#che.che.Check.isBelow">isBelow</a></code></li>
+<li><code><a title="che.che.Check.isBelowOrEqual" href="#che.che.Check.isBelowOrEqual">isBelowOrEqual</a></code></li>
+<li><code><a title="che.che.Check.isBinary" href="#che.che.Check.isBinary">isBinary</a></code></li>
+<li><code><a title="che.che.Check.isBool" href="#che.che.Check.isBool">isBool</a></code></li>
+<li><code><a title="che.che.Check.isCallable" href="#che.che.Check.isCallable">isCallable</a></code></li>
+<li><code><a title="che.che.Check.isDict" href="#che.che.Check.isDict">isDict</a></code></li>
+<li><code><a title="che.che.Check.isDictSubset" href="#che.che.Check.isDictSubset">isDictSubset</a></code></li>
+<li><code><a title="che.che.Check.isFalse" href="#che.che.Check.isFalse">isFalse</a></code></li>
+<li><code><a title="che.che.Check.isFloat" href="#che.che.Check.isFloat">isFloat</a></code></li>
+<li><code><a title="che.che.Check.isInf" href="#che.che.Check.isInf">isInf</a></code></li>
+<li><code><a title="che.che.Check.isInt" href="#che.che.Check.isInt">isInt</a></code></li>
+<li><code><a title="che.che.Check.isList" href="#che.che.Check.isList">isList</a></code></li>
+<li><code><a title="che.che.Check.isListSubset" href="#che.che.Check.isListSubset">isListSubset</a></code></li>
+<li><code><a title="che.che.Check.isNan" href="#che.che.Check.isNan">isNan</a></code></li>
+<li><code><a title="che.che.Check.isNone" href="#che.che.Check.isNone">isNone</a></code></li>
+<li><code><a title="che.che.Check.isNotInf" href="#che.che.Check.isNotInf">isNotInf</a></code></li>
+<li><code><a title="che.che.Check.isNotNan" href="#che.che.Check.isNotNan">isNotNan</a></code></li>
+<li><code><a title="che.che.Check.isNotNone" href="#che.che.Check.isNotNone">isNotNone</a></code></li>
+<li><code><a title="che.che.Check.isNotOk" href="#che.che.Check.isNotOk">isNotOk</a></code></li>
+<li><code><a title="che.che.Check.isNotZero" href="#che.che.Check.isNotZero">isNotZero</a></code></li>
+<li><code><a title="che.che.Check.isOk" href="#che.che.Check.isOk">isOk</a></code></li>
+<li><code><a title="che.che.Check.isStr" href="#che.che.Check.isStr">isStr</a></code></li>
+<li><code><a title="che.che.Check.isTrue" href="#che.che.Check.isTrue">isTrue</a></code></li>
+<li><code><a title="che.che.Check.isZero" href="#che.che.Check.isZero">isZero</a></code></li>
+<li><code><a title="che.che.Check.lengthOf" href="#che.che.Check.lengthOf">lengthOf</a></code></li>
+<li><code><a title="che.che.Check.match" href="#che.che.Check.match">match</a></code></li>
+<li><code><a title="che.che.Check.notDeepEqual" href="#che.che.Check.notDeepEqual">notDeepEqual</a></code></li>
+<li><code><a title="che.che.Check.notEqual" href="#che.che.Check.notEqual">notEqual</a></code></li>
+<li><code><a title="che.che.Check.notIn" href="#che.che.Check.notIn">notIn</a></code></li>
+<li><code><a title="che.che.Check.notMatch" href="#che.che.Check.notMatch">notMatch</a></code></li>
+<li><code><a title="che.che.Check.raises" href="#che.che.Check.raises">raises</a></code></li>
+<li><code><a title="che.che.Check.reset" href="#che.che.Check.reset">reset</a></code></li>
 </ul>
 </li>
 </ul>
