@@ -9,7 +9,7 @@ rm -r docs/check-library
 ## test
 
 ```bash
- python src/check-library/check.py -v
+python src/che/che.py -v
 ```
 
 build and publish
