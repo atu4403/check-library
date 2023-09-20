@@ -1,0 +1,3771 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>check-library.check API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>check-library.check</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import math
+import re
+
+
+class Check:
+    &#34;&#34;&#34;
+    Examples:
+        &gt;&gt;&gt; check = Check()
+        &gt;&gt;&gt; check.reset() # Reset the internal counter
+        &gt;&gt;&gt; check.equal(1, 1) # Passes when objects are equal
+        &gt;&gt;&gt; check.notEqual(1, 2) # Passes when objects are not equal
+        &gt;&gt;&gt; check.assert_calls(2) # Should pass as exactly two assertions have been made
+        &gt;&gt;&gt; check.equal(1, 2, msg=&#39;Numbers are not equal!&#39;)  # Fails and displays custom message
+        Traceback (most recent call last):
+            ...
+        AssertionError: Numbers are not equal!
+    &#34;&#34;&#34;
+
+    def __init__(self):
+        self._count = 0
+        self.isTruthy = self.isOk
+        self.isFalsy = self.isNotOk
+        self.isAtLeast = self.isAboveOrEqual
+        self.isAtMost = self.isBelowOrEqual
+        self.Is = self.deepEqual
+
+    def _inc(self):
+        self._count += 1
+
+    def reset(self):
+        &#34;&#34;&#34;
+        Resets the internal assertion counter of the Check instance to its initial state.
+
+        This method is useful for resetting the state of the Check instance when you
+        want to start a new set of assertions without creating a new instance.
+
+        Examples:
+            &gt;&gt;&gt; check = Check()
+            &gt;&gt;&gt; check.reset()
+            &gt;&gt;&gt; check.equal(1, 1)  # This will be the first assertion after reset
+            &gt;&gt;&gt; check.assert_calls(1)  # Should pass as there&#39;s only one assertion after reset
+        &#34;&#34;&#34;
+        self._count = 0
+
+    def assert_calls(self, expected, msg=None):
+        &#34;&#34;&#34;
+        Validates the number of assertions made on the Check instance.
+
+        Args:
+            expected_count (int): The expected number of assertions that should have been made.
+
+        Raises:
+            AssertionError: If the number of assertions made does not match the expected_count.
+
+        Examples:
+            &gt;&gt;&gt; check = Check()
+            &gt;&gt;&gt; check.reset()
+            &gt;&gt;&gt; check.equal(1, 1)
+            &gt;&gt;&gt; check.notEqual(1, 2)
+            &gt;&gt;&gt; check.assert_calls(2)  # Should pass as exactly two assertions have been made
+        &#34;&#34;&#34;
+        assert self._count == expected, msg or &#34;expected %d calls, got %d&#34; % (
+            expected,
+            self._count,
+        )
+
+    def isNone(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is None.
+
+        Args:
+            obj: The object to be checked for None.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the provided object is not None.
+
+        Examples:
+            &gt;&gt;&gt; check.isNone(None)  # Passes when None is provided
+            &gt;&gt;&gt; check.isNone(False)  # Fails when False is provided
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not None
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj is None, msg or &#34;Object is not None&#34;
+
+    def isNotNone(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is not None.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is None.
+
+        Examples:
+            &gt;&gt;&gt; check.isNotNone(&#34;not None&#34;)  # Passes when not None
+            &gt;&gt;&gt; check.isNotNone(None)  # Fails when None
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is None
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj is not None, msg or &#34;Object is None&#34;
+
+    def isOk(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is truthy (e.g., not 0, None, False).
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is falsy.
+
+        Examples:
+            &gt;&gt;&gt; check.isOk(1)  # Passes when object is truthy
+            &gt;&gt;&gt; check.isOk(0)  # Fails when object is falsy
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is falsy
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj, msg or &#34;Object is falsy&#34;
+
+    def isNotOk(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is falsy (e.g., 0, None, False).
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is truthy.
+
+        Examples:
+            &gt;&gt;&gt; check.isNotOk(0)  # Passes when object is falsy
+            &gt;&gt;&gt; check.isNotOk(1)  # Fails when object is truthy
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is truthy
+        &#34;&#34;&#34;
+        self._inc()
+        assert not obj, msg or &#34;Object is truthy&#34;
+
+    def equal(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if two given objects are equal.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the objects are not equal.
+
+        Examples:
+            &gt;&gt;&gt; check.equal(1, 1)  # Passes when objects are equal
+            &gt;&gt;&gt; check.equal(1, 2)  # Fails when objects are not equal
+            Traceback (most recent call last):
+                ...
+            AssertionError: Objects are not equal
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 == obj2, msg or &#34;Objects are not equal&#34;
+
+    def deepEqual(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if two given objects are identical (same memory location).
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the objects are not identical.
+
+        Examples:
+            &gt;&gt;&gt; a = [1, 2, 3]
+            &gt;&gt;&gt; b = a
+            &gt;&gt;&gt; check.deepEqual(a, b)  # Passes when objects are identical
+            &gt;&gt;&gt; check.deepEqual(a, [1, 2, 3])  # Fails when objects are not identical
+            Traceback (most recent call last):
+                ...
+            AssertionError: Objects are not the same (not identical)
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 is obj2, msg or &#34;Objects are not the same (not identical)&#34;
+
+    def notEqual(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if two given objects are not equal.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the objects are equal.
+
+        Examples:
+            &gt;&gt;&gt; check.notEqual(1, 2)  # Passes when objects are not equal
+            &gt;&gt;&gt; check.notEqual(1, 1)  # Fails when objects are equal
+            Traceback (most recent call last):
+                ...
+            AssertionError: Objects are equal
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 != obj2, msg or &#34;Objects are equal&#34;
+
+    def notDeepEqual(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if two given objects are not identical (do not refer to the same memory location).
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the objects are identical.
+
+        Examples:
+            &gt;&gt;&gt; a = [1, 2, 3]
+            &gt;&gt;&gt; check.notDeepEqual(a, [1, 2, 3])  # Passes when objects are not identical
+            &gt;&gt;&gt; b = a
+            &gt;&gt;&gt; check.notDeepEqual(a, b)  # Fails when objects are identical
+            Traceback (most recent call last):
+                ...
+            AssertionError: Objects are the same (identical)
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 is not obj2, msg or &#34;Objects are the same (identical)&#34;
+
+    def isAbove(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if the first object is greater than the second object.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If obj1 is not greater than obj2.
+
+        Examples:
+            &gt;&gt;&gt; check.isAbove(2, 1)  # Passes when obj1 is greater than obj2
+            &gt;&gt;&gt; check.isAbove(1, 2)  # Fails when obj1 is not greater than obj2
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is below
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 &gt; obj2, msg or &#34;Object is below&#34;
+
+    def isBelow(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if the first object is less than the second object.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If obj1 is not less than obj2.
+
+        Examples:
+            &gt;&gt;&gt; check.isBelow(1, 2)  # Passes when obj1 is less than obj2
+            &gt;&gt;&gt; check.isBelow(2, 1)  # Fails when obj1 is not less than obj2
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is above
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 &lt; obj2, msg or &#34;Object is above&#34;
+
+    def isAboveOrEqual(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if the first object is greater than or equal to the second object.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If obj1 is not greater than or equal to obj2.
+
+        Examples:
+            &gt;&gt;&gt; check.isAboveOrEqual(2, 1)  # Passes when obj1 is greater than or equal to obj2
+            &gt;&gt;&gt; check.isAboveOrEqual(1, 2)  # Fails when obj1 is not greater than or equal to obj2
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is below
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 &gt;= obj2, msg or &#34;Object is below&#34;
+
+    def isBelowOrEqual(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if the first object is less than or equal to the second object.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If obj1 is not less than or equal to obj2.
+
+        Examples:
+            &gt;&gt;&gt; check.isBelowOrEqual(1, 2)  # Passes when obj1 is less than or equal to obj2
+            &gt;&gt;&gt; check.isBelowOrEqual(2, 1)  # Fails when obj1 is not less than or equal to obj2
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is above
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 &lt;= obj2, msg or &#34;Object is above&#34;
+
+    def isTrue(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is True.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not True.
+
+        Examples:
+            &gt;&gt;&gt; check.isTrue(True)  # Passes when object is True
+            &gt;&gt;&gt; check.isTrue(False)  # Fails when object is not True
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object not True
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj is True, msg or &#34;Object not True&#34;
+
+    def isFalse(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is False.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not False.
+
+        Examples:
+            &gt;&gt;&gt; check.isFalse(False)  # Passes when object is False
+            &gt;&gt;&gt; check.isFalse(True)  # Fails when object is not False
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object not False
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj is False, msg or &#34;Object not False&#34;
+
+    def isZero(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is zero.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not zero.
+
+        Examples:
+            &gt;&gt;&gt; check.isZero(0)  # Passes when object is 0
+            &gt;&gt;&gt; check.isZero(1)  # Fails when object is not 0
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object not 0
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj == 0, msg or &#34;Object not 0&#34;
+
+    def isNotZero(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is zero.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not zero.
+
+        Examples:
+            &gt;&gt;&gt; check.isZero(0)  # Passes when object is 0
+            &gt;&gt;&gt; check.isZero(1)  # Fails when object is not 0
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object not 0
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj != 0, msg or &#34;Object is 0&#34;
+
+    def isList(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a list.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a list.
+
+        Examples:
+            &gt;&gt;&gt; check.isList([1, 2, 3])  # Passes when object is a list
+            &gt;&gt;&gt; check.isList({&#34;key&#34;: &#34;value&#34;})  # Fails when object is not a list
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a list
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, list), msg or &#34;Object is not a list&#34;
+
+    def isDict(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a dictionary.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a dictionary.
+
+        Examples:
+            &gt;&gt;&gt; check.isDict({&#34;key&#34;: &#34;value&#34;})  # Passes when object is a dictionary
+            &gt;&gt;&gt; check.isDict([1, 2, 3])  # Fails when object is not a dictionary
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a dict
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, dict), msg or &#34;Object is not a dict&#34;
+
+    def isInt(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is an integer.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not an integer.
+
+        Examples:
+            &gt;&gt;&gt; check.isInt(1)  # Passes when object is an integer
+            &gt;&gt;&gt; check.isInt(1.5)  # Fails when object is not an integer
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not an integer
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, int), msg or &#34;Object is not an integer&#34;
+
+    def isFloat(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a float.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a float.
+
+        Examples:
+            &gt;&gt;&gt; check.isFloat(1.5)  # Passes when object is a float
+            &gt;&gt;&gt; check.isFloat(1)  # Fails when object is not a float
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a float
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, float), msg or &#34;Object is not a float&#34;
+
+    def isStr(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a string.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a string.
+
+        Examples:
+            &gt;&gt;&gt; check.isStr(&#34;hello&#34;)  # Passes when object is a string
+            &gt;&gt;&gt; check.isStr(1)  # Fails when object is not a string
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a string
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, str), msg or &#34;Object is not a string&#34;
+
+    def isBool(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a boolean.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a boolean.
+
+        Examples:
+            &gt;&gt;&gt; check.isBool(True)  # Passes when object is a boolean
+            &gt;&gt;&gt; check.isBool(1)  # Fails when object is not a boolean
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a boolean
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, bool), msg or &#34;Object is not a boolean&#34;
+
+    def isCallable(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is callable (e.g., a function or method).
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not callable.
+
+        Examples:
+            &gt;&gt;&gt; check.isCallable(lambda x: x + 1)  # Passes when object is callable
+            &gt;&gt;&gt; check.isCallable(&#34;not callable&#34;)  # Fails when object is not callable
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not callable
+        &#34;&#34;&#34;
+        self._inc()
+        assert callable(obj), msg or &#34;Object is not callable&#34;
+
+    def isListSubset(self, sub_list, main_list, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given list is a subset of another list.
+
+        Args:
+            subset (list): The subset list to be checked.
+            superset (list): The superset list against which to check.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the subset list is not a subset of the superset list.
+
+        Examples:
+            &gt;&gt;&gt; check.isListSubset([1], [1, 2, 3])  # Passes when subset is a subset of superset
+            &gt;&gt;&gt; check.isListSubset([1, 4], [1, 2, 3])  # Fails when subset is not a subset of superset
+            Traceback (most recent call last):
+                ...
+            AssertionError: sub_list is not in main_list
+        &#34;&#34;&#34;
+
+        self._inc()
+        assert all(i in main_list for i in sub_list), (
+            msg or &#34;sub_list is not in main_list&#34;
+        )
+
+    def isDictSubset(self, sub_dict, main_dict, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given dictionary is a subset of another dictionary.
+
+        Args:
+            subset (dict): The subset dictionary to be checked.
+            superset (dict): The superset dictionary against which to check.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the subset dictionary is not a subset of the superset dictionary.
+
+        Examples:
+            &gt;&gt;&gt; check.isDictSubset({&#39;a&#39;: 1}, {&#39;a&#39;: 1, &#39;b&#39;: 2})  # Passes when subset is a subset of superset
+            &gt;&gt;&gt; check.isDictSubset({&#39;a&#39;: 1, &#39;c&#39;: 3}, {&#39;a&#39;: 1, &#39;b&#39;: 2})  # Fails when subset is not a subset of superset
+            Traceback (most recent call last):
+                ...
+            AssertionError: sub_dict is not in main_dict
+        &#34;&#34;&#34;
+        self._inc()
+        assert all(item in main_dict.items() for item in sub_dict.items()), (
+            msg or &#34;sub_dict is not in main_dict&#34;
+        )
+
+    def isNan(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is NaN (Not a Number).
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not NaN.
+
+        Examples:
+            &gt;&gt;&gt; import math
+            &gt;&gt;&gt; check.isNan(math.nan)  # Passes when object is NaN
+            &gt;&gt;&gt; check.isNan(1)  # Fails when object is not NaN
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not NaN
+        &#34;&#34;&#34;
+        self._inc()
+        assert math.isnan(obj), msg or &#34;Object is not NaN&#34;
+
+    def isInf(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a finite number.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a finite number.
+
+        Examples:
+            &gt;&gt;&gt; check.isInf(float(&#39;inf&#39;))  # Passes when object is a finite number
+            &gt;&gt;&gt; check.isInf(1)  # Fails when object is not a finite number
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not Inf
+        &#34;&#34;&#34;
+        self._inc()
+        assert math.isinf(obj), msg or &#34;Object is not Inf&#34;
+
+    def isBinary(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a binary string.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a binary string.
+
+        Examples:
+            &gt;&gt;&gt; check.isBinary(b&#39;binary&#39;)  # Passes when object is a binary string
+            &gt;&gt;&gt; check.isBinary(&#39;not binary&#39;)  # Fails when object is not a binary string
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a binary string
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, bytes), msg or &#34;Object is not a binary string&#34;
+
+    def isNotNan(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is not NaN (Not a Number).
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is NaN.
+
+        Examples:
+            &gt;&gt;&gt; check.isNotNan(1)  # Passes when object is not NaN
+            &gt;&gt;&gt; import math
+            &gt;&gt;&gt; check.isNotNan(math.nan)  # Fails when object is NaN
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is NaN
+        &#34;&#34;&#34;
+        self._inc()
+        assert not math.isnan(obj), msg or &#34;Object is NaN&#34;
+
+    def isNotInf(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is not an infinite number.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is infinite.
+
+        Examples:
+            &gt;&gt;&gt; check.isNotInf(1)  # Passes when object is not infinite
+            &gt;&gt;&gt; import math
+            &gt;&gt;&gt; check.isNotInf(math.inf)  # Fails when object is infinite
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is infinite
+        &#34;&#34;&#34;
+        self._inc()
+        assert not math.isinf(obj), msg or &#34;Object is infinite&#34;
+
+    def In(self, sub, main, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object exists within the specified iterable.
+
+        Args:
+            obj: The object to be checked.
+            iterable: The iterable in which to check for the object.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object does not exist in the iterable.
+
+        Examples:
+            &gt;&gt;&gt; check.In(1, [1, 2, 3])  # Passes when object is in iterable
+            &gt;&gt;&gt; check.In(4, [1, 2, 3])  # Fails when object is not in iterable
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object not in iterable
+        &#34;&#34;&#34;
+        self._inc()
+        assert sub in main, msg or &#34;Object not in iterable&#34;
+
+    def notIn(self, sub, main, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object does not exist within the specified iterable.
+
+        Args:
+            obj: The object to be checked.
+            iterable: The iterable in which to check for the object.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object exists in the iterable.
+
+        Examples:
+            &gt;&gt;&gt; check.notIn(4, [1, 2, 3])  # Passes when object is not in iterable
+            &gt;&gt;&gt; check.notIn(1, [1, 2, 3])  # Fails when object is in iterable
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object in iterable
+        &#34;&#34;&#34;
+        self._inc()
+        assert sub not in main, msg or &#34;Object in iterable&#34;
+
+    def match(self, pattern, text, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given string matches the specified regular expression pattern.
+
+        Args:
+            pattern (str): The regular expression pattern.
+            string (str): The string to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the string does not match the pattern.
+
+        Examples:
+            &gt;&gt;&gt; check.match(r&#39;\d+&#39;, &#39;123&#39;)  # Passes when string matches the pattern
+            &gt;&gt;&gt; check.match(r&#39;\d+&#39;, &#39;abc&#39;)  # Fails when string does not match the pattern
+            Traceback (most recent call last):
+                ...
+            AssertionError: pattern `\d+` does not match text `abc`
+        &#34;&#34;&#34;
+        self._inc()
+        assert re.match(pattern, text), (
+            msg or f&#34;pattern `{pattern}` does not match text `{text}`&#34;
+        )
+
+    def notMatch(self, pattern, text, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given string does not match the specified regular expression pattern.
+
+        Args:
+            pattern (str): The regular expression pattern.
+            string (str): The string to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the string matches the pattern.
+
+        Examples:
+            &gt;&gt;&gt; check.notMatch(r&#39;\\d+&#39;, &#39;abc&#39;)  # Passes when string does not match the pattern
+            &gt;&gt;&gt; check.notMatch(r&#39;\\d+&#39;, &#39;123&#39;)  # Fails when string matches the pattern
+            Traceback (most recent call last):
+                ...
+            AssertionError: Pattern matched
+        &#34;&#34;&#34;
+        self._inc()
+        assert not re.match(pattern, text), msg or &#34;Pattern matched&#34;
+
+    def lengthOf(self, obj, length, msg=None):
+        self._inc()
+        assert len(obj) == length, msg or &#34;Object has wrong length&#34;
+
+    def raises(self, fn, exc, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given callable raises the specified exception when called.
+
+        Args:
+            exc_type (Exception): The type of exception expected.
+            callable_obj: The callable object to be checked.
+            *args: Arguments to pass to the callable.
+            **kwargs: Keyword arguments to pass to the callable.
+
+        Raises:
+            AssertionError: If the callable does not raise the expected exception.
+
+        Examples:
+            &gt;&gt;&gt; fn = lambda: 2 / 0
+            &gt;&gt;&gt; check.raises(fn, ZeroDivisionError)
+            &gt;&gt;&gt; check.raises(fn, ValueError)
+            Traceback (most recent call last):
+                ...
+            AssertionError: Function raised ZeroDivisionError
+            &gt;&gt;&gt; fn = lambda: 1
+            &gt;&gt;&gt; check.raises(fn, ValueError)
+            Traceback (most recent call last):
+                ...
+            AssertionError: Function did not raise exception
+        &#34;&#34;&#34;
+        self._inc()
+        try:
+            fn()
+        except exc:
+            return
+        except Exception as e:
+            exception_class = type(e)
+            raise AssertionError(
+                msg or f&#34;Function raised {exception_class.__name__}&#34;
+            ) from None
+        else:
+            raise AssertionError(msg or &#34;Function did not raise exception&#34;)
+
+
+if __name__ == &#34;__main__&#34;:
+    import doctest
+
+    doctest.testmod(extraglobs={&#34;check&#34;: Check()})</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="check-library.check.Check"><code class="flex name class">
+<span>class <span class="ident">Check</span></span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check = Check()
+&gt;&gt;&gt; check.reset() # Reset the internal counter
+&gt;&gt;&gt; check.equal(1, 1) # Passes when objects are equal
+&gt;&gt;&gt; check.notEqual(1, 2) # Passes when objects are not equal
+&gt;&gt;&gt; check.assert_calls(2) # Should pass as exactly two assertions have been made
+&gt;&gt;&gt; check.equal(1, 2, msg='Numbers are not equal!')  # Fails and displays custom message
+Traceback (most recent call last):
+    ...
+AssertionError: Numbers are not equal!
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Check:
+    &#34;&#34;&#34;
+    Examples:
+        &gt;&gt;&gt; check = Check()
+        &gt;&gt;&gt; check.reset() # Reset the internal counter
+        &gt;&gt;&gt; check.equal(1, 1) # Passes when objects are equal
+        &gt;&gt;&gt; check.notEqual(1, 2) # Passes when objects are not equal
+        &gt;&gt;&gt; check.assert_calls(2) # Should pass as exactly two assertions have been made
+        &gt;&gt;&gt; check.equal(1, 2, msg=&#39;Numbers are not equal!&#39;)  # Fails and displays custom message
+        Traceback (most recent call last):
+            ...
+        AssertionError: Numbers are not equal!
+    &#34;&#34;&#34;
+
+    def __init__(self):
+        self._count = 0
+        self.isTruthy = self.isOk
+        self.isFalsy = self.isNotOk
+        self.isAtLeast = self.isAboveOrEqual
+        self.isAtMost = self.isBelowOrEqual
+        self.Is = self.deepEqual
+
+    def _inc(self):
+        self._count += 1
+
+    def reset(self):
+        &#34;&#34;&#34;
+        Resets the internal assertion counter of the Check instance to its initial state.
+
+        This method is useful for resetting the state of the Check instance when you
+        want to start a new set of assertions without creating a new instance.
+
+        Examples:
+            &gt;&gt;&gt; check = Check()
+            &gt;&gt;&gt; check.reset()
+            &gt;&gt;&gt; check.equal(1, 1)  # This will be the first assertion after reset
+            &gt;&gt;&gt; check.assert_calls(1)  # Should pass as there&#39;s only one assertion after reset
+        &#34;&#34;&#34;
+        self._count = 0
+
+    def assert_calls(self, expected, msg=None):
+        &#34;&#34;&#34;
+        Validates the number of assertions made on the Check instance.
+
+        Args:
+            expected_count (int): The expected number of assertions that should have been made.
+
+        Raises:
+            AssertionError: If the number of assertions made does not match the expected_count.
+
+        Examples:
+            &gt;&gt;&gt; check = Check()
+            &gt;&gt;&gt; check.reset()
+            &gt;&gt;&gt; check.equal(1, 1)
+            &gt;&gt;&gt; check.notEqual(1, 2)
+            &gt;&gt;&gt; check.assert_calls(2)  # Should pass as exactly two assertions have been made
+        &#34;&#34;&#34;
+        assert self._count == expected, msg or &#34;expected %d calls, got %d&#34; % (
+            expected,
+            self._count,
+        )
+
+    def isNone(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is None.
+
+        Args:
+            obj: The object to be checked for None.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the provided object is not None.
+
+        Examples:
+            &gt;&gt;&gt; check.isNone(None)  # Passes when None is provided
+            &gt;&gt;&gt; check.isNone(False)  # Fails when False is provided
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not None
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj is None, msg or &#34;Object is not None&#34;
+
+    def isNotNone(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is not None.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is None.
+
+        Examples:
+            &gt;&gt;&gt; check.isNotNone(&#34;not None&#34;)  # Passes when not None
+            &gt;&gt;&gt; check.isNotNone(None)  # Fails when None
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is None
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj is not None, msg or &#34;Object is None&#34;
+
+    def isOk(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is truthy (e.g., not 0, None, False).
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is falsy.
+
+        Examples:
+            &gt;&gt;&gt; check.isOk(1)  # Passes when object is truthy
+            &gt;&gt;&gt; check.isOk(0)  # Fails when object is falsy
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is falsy
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj, msg or &#34;Object is falsy&#34;
+
+    def isNotOk(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is falsy (e.g., 0, None, False).
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is truthy.
+
+        Examples:
+            &gt;&gt;&gt; check.isNotOk(0)  # Passes when object is falsy
+            &gt;&gt;&gt; check.isNotOk(1)  # Fails when object is truthy
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is truthy
+        &#34;&#34;&#34;
+        self._inc()
+        assert not obj, msg or &#34;Object is truthy&#34;
+
+    def equal(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if two given objects are equal.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the objects are not equal.
+
+        Examples:
+            &gt;&gt;&gt; check.equal(1, 1)  # Passes when objects are equal
+            &gt;&gt;&gt; check.equal(1, 2)  # Fails when objects are not equal
+            Traceback (most recent call last):
+                ...
+            AssertionError: Objects are not equal
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 == obj2, msg or &#34;Objects are not equal&#34;
+
+    def deepEqual(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if two given objects are identical (same memory location).
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the objects are not identical.
+
+        Examples:
+            &gt;&gt;&gt; a = [1, 2, 3]
+            &gt;&gt;&gt; b = a
+            &gt;&gt;&gt; check.deepEqual(a, b)  # Passes when objects are identical
+            &gt;&gt;&gt; check.deepEqual(a, [1, 2, 3])  # Fails when objects are not identical
+            Traceback (most recent call last):
+                ...
+            AssertionError: Objects are not the same (not identical)
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 is obj2, msg or &#34;Objects are not the same (not identical)&#34;
+
+    def notEqual(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if two given objects are not equal.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the objects are equal.
+
+        Examples:
+            &gt;&gt;&gt; check.notEqual(1, 2)  # Passes when objects are not equal
+            &gt;&gt;&gt; check.notEqual(1, 1)  # Fails when objects are equal
+            Traceback (most recent call last):
+                ...
+            AssertionError: Objects are equal
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 != obj2, msg or &#34;Objects are equal&#34;
+
+    def notDeepEqual(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if two given objects are not identical (do not refer to the same memory location).
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the objects are identical.
+
+        Examples:
+            &gt;&gt;&gt; a = [1, 2, 3]
+            &gt;&gt;&gt; check.notDeepEqual(a, [1, 2, 3])  # Passes when objects are not identical
+            &gt;&gt;&gt; b = a
+            &gt;&gt;&gt; check.notDeepEqual(a, b)  # Fails when objects are identical
+            Traceback (most recent call last):
+                ...
+            AssertionError: Objects are the same (identical)
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 is not obj2, msg or &#34;Objects are the same (identical)&#34;
+
+    def isAbove(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if the first object is greater than the second object.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If obj1 is not greater than obj2.
+
+        Examples:
+            &gt;&gt;&gt; check.isAbove(2, 1)  # Passes when obj1 is greater than obj2
+            &gt;&gt;&gt; check.isAbove(1, 2)  # Fails when obj1 is not greater than obj2
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is below
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 &gt; obj2, msg or &#34;Object is below&#34;
+
+    def isBelow(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if the first object is less than the second object.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If obj1 is not less than obj2.
+
+        Examples:
+            &gt;&gt;&gt; check.isBelow(1, 2)  # Passes when obj1 is less than obj2
+            &gt;&gt;&gt; check.isBelow(2, 1)  # Fails when obj1 is not less than obj2
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is above
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 &lt; obj2, msg or &#34;Object is above&#34;
+
+    def isAboveOrEqual(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if the first object is greater than or equal to the second object.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If obj1 is not greater than or equal to obj2.
+
+        Examples:
+            &gt;&gt;&gt; check.isAboveOrEqual(2, 1)  # Passes when obj1 is greater than or equal to obj2
+            &gt;&gt;&gt; check.isAboveOrEqual(1, 2)  # Fails when obj1 is not greater than or equal to obj2
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is below
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 &gt;= obj2, msg or &#34;Object is below&#34;
+
+    def isBelowOrEqual(self, obj1, obj2, msg=None):
+        &#34;&#34;&#34;
+        Checks if the first object is less than or equal to the second object.
+
+        Args:
+            obj1: The first object to be compared.
+            obj2: The second object to be compared.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If obj1 is not less than or equal to obj2.
+
+        Examples:
+            &gt;&gt;&gt; check.isBelowOrEqual(1, 2)  # Passes when obj1 is less than or equal to obj2
+            &gt;&gt;&gt; check.isBelowOrEqual(2, 1)  # Fails when obj1 is not less than or equal to obj2
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is above
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj1 &lt;= obj2, msg or &#34;Object is above&#34;
+
+    def isTrue(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is True.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not True.
+
+        Examples:
+            &gt;&gt;&gt; check.isTrue(True)  # Passes when object is True
+            &gt;&gt;&gt; check.isTrue(False)  # Fails when object is not True
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object not True
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj is True, msg or &#34;Object not True&#34;
+
+    def isFalse(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is False.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not False.
+
+        Examples:
+            &gt;&gt;&gt; check.isFalse(False)  # Passes when object is False
+            &gt;&gt;&gt; check.isFalse(True)  # Fails when object is not False
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object not False
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj is False, msg or &#34;Object not False&#34;
+
+    def isZero(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is zero.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not zero.
+
+        Examples:
+            &gt;&gt;&gt; check.isZero(0)  # Passes when object is 0
+            &gt;&gt;&gt; check.isZero(1)  # Fails when object is not 0
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object not 0
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj == 0, msg or &#34;Object not 0&#34;
+
+    def isNotZero(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is zero.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not zero.
+
+        Examples:
+            &gt;&gt;&gt; check.isZero(0)  # Passes when object is 0
+            &gt;&gt;&gt; check.isZero(1)  # Fails when object is not 0
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object not 0
+        &#34;&#34;&#34;
+        self._inc()
+        assert obj != 0, msg or &#34;Object is 0&#34;
+
+    def isList(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a list.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a list.
+
+        Examples:
+            &gt;&gt;&gt; check.isList([1, 2, 3])  # Passes when object is a list
+            &gt;&gt;&gt; check.isList({&#34;key&#34;: &#34;value&#34;})  # Fails when object is not a list
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a list
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, list), msg or &#34;Object is not a list&#34;
+
+    def isDict(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a dictionary.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a dictionary.
+
+        Examples:
+            &gt;&gt;&gt; check.isDict({&#34;key&#34;: &#34;value&#34;})  # Passes when object is a dictionary
+            &gt;&gt;&gt; check.isDict([1, 2, 3])  # Fails when object is not a dictionary
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a dict
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, dict), msg or &#34;Object is not a dict&#34;
+
+    def isInt(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is an integer.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not an integer.
+
+        Examples:
+            &gt;&gt;&gt; check.isInt(1)  # Passes when object is an integer
+            &gt;&gt;&gt; check.isInt(1.5)  # Fails when object is not an integer
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not an integer
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, int), msg or &#34;Object is not an integer&#34;
+
+    def isFloat(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a float.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a float.
+
+        Examples:
+            &gt;&gt;&gt; check.isFloat(1.5)  # Passes when object is a float
+            &gt;&gt;&gt; check.isFloat(1)  # Fails when object is not a float
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a float
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, float), msg or &#34;Object is not a float&#34;
+
+    def isStr(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a string.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a string.
+
+        Examples:
+            &gt;&gt;&gt; check.isStr(&#34;hello&#34;)  # Passes when object is a string
+            &gt;&gt;&gt; check.isStr(1)  # Fails when object is not a string
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a string
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, str), msg or &#34;Object is not a string&#34;
+
+    def isBool(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a boolean.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a boolean.
+
+        Examples:
+            &gt;&gt;&gt; check.isBool(True)  # Passes when object is a boolean
+            &gt;&gt;&gt; check.isBool(1)  # Fails when object is not a boolean
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a boolean
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, bool), msg or &#34;Object is not a boolean&#34;
+
+    def isCallable(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is callable (e.g., a function or method).
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not callable.
+
+        Examples:
+            &gt;&gt;&gt; check.isCallable(lambda x: x + 1)  # Passes when object is callable
+            &gt;&gt;&gt; check.isCallable(&#34;not callable&#34;)  # Fails when object is not callable
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not callable
+        &#34;&#34;&#34;
+        self._inc()
+        assert callable(obj), msg or &#34;Object is not callable&#34;
+
+    def isListSubset(self, sub_list, main_list, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given list is a subset of another list.
+
+        Args:
+            subset (list): The subset list to be checked.
+            superset (list): The superset list against which to check.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the subset list is not a subset of the superset list.
+
+        Examples:
+            &gt;&gt;&gt; check.isListSubset([1], [1, 2, 3])  # Passes when subset is a subset of superset
+            &gt;&gt;&gt; check.isListSubset([1, 4], [1, 2, 3])  # Fails when subset is not a subset of superset
+            Traceback (most recent call last):
+                ...
+            AssertionError: sub_list is not in main_list
+        &#34;&#34;&#34;
+
+        self._inc()
+        assert all(i in main_list for i in sub_list), (
+            msg or &#34;sub_list is not in main_list&#34;
+        )
+
+    def isDictSubset(self, sub_dict, main_dict, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given dictionary is a subset of another dictionary.
+
+        Args:
+            subset (dict): The subset dictionary to be checked.
+            superset (dict): The superset dictionary against which to check.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the subset dictionary is not a subset of the superset dictionary.
+
+        Examples:
+            &gt;&gt;&gt; check.isDictSubset({&#39;a&#39;: 1}, {&#39;a&#39;: 1, &#39;b&#39;: 2})  # Passes when subset is a subset of superset
+            &gt;&gt;&gt; check.isDictSubset({&#39;a&#39;: 1, &#39;c&#39;: 3}, {&#39;a&#39;: 1, &#39;b&#39;: 2})  # Fails when subset is not a subset of superset
+            Traceback (most recent call last):
+                ...
+            AssertionError: sub_dict is not in main_dict
+        &#34;&#34;&#34;
+        self._inc()
+        assert all(item in main_dict.items() for item in sub_dict.items()), (
+            msg or &#34;sub_dict is not in main_dict&#34;
+        )
+
+    def isNan(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is NaN (Not a Number).
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not NaN.
+
+        Examples:
+            &gt;&gt;&gt; import math
+            &gt;&gt;&gt; check.isNan(math.nan)  # Passes when object is NaN
+            &gt;&gt;&gt; check.isNan(1)  # Fails when object is not NaN
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not NaN
+        &#34;&#34;&#34;
+        self._inc()
+        assert math.isnan(obj), msg or &#34;Object is not NaN&#34;
+
+    def isInf(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a finite number.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a finite number.
+
+        Examples:
+            &gt;&gt;&gt; check.isInf(float(&#39;inf&#39;))  # Passes when object is a finite number
+            &gt;&gt;&gt; check.isInf(1)  # Fails when object is not a finite number
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not Inf
+        &#34;&#34;&#34;
+        self._inc()
+        assert math.isinf(obj), msg or &#34;Object is not Inf&#34;
+
+    def isBinary(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is a binary string.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is not a binary string.
+
+        Examples:
+            &gt;&gt;&gt; check.isBinary(b&#39;binary&#39;)  # Passes when object is a binary string
+            &gt;&gt;&gt; check.isBinary(&#39;not binary&#39;)  # Fails when object is not a binary string
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is not a binary string
+        &#34;&#34;&#34;
+        self._inc()
+        assert isinstance(obj, bytes), msg or &#34;Object is not a binary string&#34;
+
+    def isNotNan(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is not NaN (Not a Number).
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is NaN.
+
+        Examples:
+            &gt;&gt;&gt; check.isNotNan(1)  # Passes when object is not NaN
+            &gt;&gt;&gt; import math
+            &gt;&gt;&gt; check.isNotNan(math.nan)  # Fails when object is NaN
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is NaN
+        &#34;&#34;&#34;
+        self._inc()
+        assert not math.isnan(obj), msg or &#34;Object is NaN&#34;
+
+    def isNotInf(self, obj, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object is not an infinite number.
+
+        Args:
+            obj: The object to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object is infinite.
+
+        Examples:
+            &gt;&gt;&gt; check.isNotInf(1)  # Passes when object is not infinite
+            &gt;&gt;&gt; import math
+            &gt;&gt;&gt; check.isNotInf(math.inf)  # Fails when object is infinite
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object is infinite
+        &#34;&#34;&#34;
+        self._inc()
+        assert not math.isinf(obj), msg or &#34;Object is infinite&#34;
+
+    def In(self, sub, main, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object exists within the specified iterable.
+
+        Args:
+            obj: The object to be checked.
+            iterable: The iterable in which to check for the object.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object does not exist in the iterable.
+
+        Examples:
+            &gt;&gt;&gt; check.In(1, [1, 2, 3])  # Passes when object is in iterable
+            &gt;&gt;&gt; check.In(4, [1, 2, 3])  # Fails when object is not in iterable
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object not in iterable
+        &#34;&#34;&#34;
+        self._inc()
+        assert sub in main, msg or &#34;Object not in iterable&#34;
+
+    def notIn(self, sub, main, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given object does not exist within the specified iterable.
+
+        Args:
+            obj: The object to be checked.
+            iterable: The iterable in which to check for the object.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the object exists in the iterable.
+
+        Examples:
+            &gt;&gt;&gt; check.notIn(4, [1, 2, 3])  # Passes when object is not in iterable
+            &gt;&gt;&gt; check.notIn(1, [1, 2, 3])  # Fails when object is in iterable
+            Traceback (most recent call last):
+                ...
+            AssertionError: Object in iterable
+        &#34;&#34;&#34;
+        self._inc()
+        assert sub not in main, msg or &#34;Object in iterable&#34;
+
+    def match(self, pattern, text, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given string matches the specified regular expression pattern.
+
+        Args:
+            pattern (str): The regular expression pattern.
+            string (str): The string to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the string does not match the pattern.
+
+        Examples:
+            &gt;&gt;&gt; check.match(r&#39;\d+&#39;, &#39;123&#39;)  # Passes when string matches the pattern
+            &gt;&gt;&gt; check.match(r&#39;\d+&#39;, &#39;abc&#39;)  # Fails when string does not match the pattern
+            Traceback (most recent call last):
+                ...
+            AssertionError: pattern `\d+` does not match text `abc`
+        &#34;&#34;&#34;
+        self._inc()
+        assert re.match(pattern, text), (
+            msg or f&#34;pattern `{pattern}` does not match text `{text}`&#34;
+        )
+
+    def notMatch(self, pattern, text, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given string does not match the specified regular expression pattern.
+
+        Args:
+            pattern (str): The regular expression pattern.
+            string (str): The string to be checked.
+            msg (str, optional): An optional message to be displayed if the check fails.
+
+        Raises:
+            AssertionError: If the string matches the pattern.
+
+        Examples:
+            &gt;&gt;&gt; check.notMatch(r&#39;\\d+&#39;, &#39;abc&#39;)  # Passes when string does not match the pattern
+            &gt;&gt;&gt; check.notMatch(r&#39;\\d+&#39;, &#39;123&#39;)  # Fails when string matches the pattern
+            Traceback (most recent call last):
+                ...
+            AssertionError: Pattern matched
+        &#34;&#34;&#34;
+        self._inc()
+        assert not re.match(pattern, text), msg or &#34;Pattern matched&#34;
+
+    def lengthOf(self, obj, length, msg=None):
+        self._inc()
+        assert len(obj) == length, msg or &#34;Object has wrong length&#34;
+
+    def raises(self, fn, exc, msg=None):
+        &#34;&#34;&#34;
+        Checks if the given callable raises the specified exception when called.
+
+        Args:
+            exc_type (Exception): The type of exception expected.
+            callable_obj: The callable object to be checked.
+            *args: Arguments to pass to the callable.
+            **kwargs: Keyword arguments to pass to the callable.
+
+        Raises:
+            AssertionError: If the callable does not raise the expected exception.
+
+        Examples:
+            &gt;&gt;&gt; fn = lambda: 2 / 0
+            &gt;&gt;&gt; check.raises(fn, ZeroDivisionError)
+            &gt;&gt;&gt; check.raises(fn, ValueError)
+            Traceback (most recent call last):
+                ...
+            AssertionError: Function raised ZeroDivisionError
+            &gt;&gt;&gt; fn = lambda: 1
+            &gt;&gt;&gt; check.raises(fn, ValueError)
+            Traceback (most recent call last):
+                ...
+            AssertionError: Function did not raise exception
+        &#34;&#34;&#34;
+        self._inc()
+        try:
+            fn()
+        except exc:
+            return
+        except Exception as e:
+            exception_class = type(e)
+            raise AssertionError(
+                msg or f&#34;Function raised {exception_class.__name__}&#34;
+            ) from None
+        else:
+            raise AssertionError(msg or &#34;Function did not raise exception&#34;)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="check-library.check.Check.In"><code class="name flex">
+<span>def <span class="ident">In</span></span>(<span>self, sub, main, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object exists within the specified iterable.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>iterable</code></strong></dt>
+<dd>The iterable in which to check for the object.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object does not exist in the iterable.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.In(1, [1, 2, 3])  # Passes when object is in iterable
+&gt;&gt;&gt; check.In(4, [1, 2, 3])  # Fails when object is not in iterable
+Traceback (most recent call last):
+    ...
+AssertionError: Object not in iterable
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def In(self, sub, main, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object exists within the specified iterable.
+
+    Args:
+        obj: The object to be checked.
+        iterable: The iterable in which to check for the object.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object does not exist in the iterable.
+
+    Examples:
+        &gt;&gt;&gt; check.In(1, [1, 2, 3])  # Passes when object is in iterable
+        &gt;&gt;&gt; check.In(4, [1, 2, 3])  # Fails when object is not in iterable
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object not in iterable
+    &#34;&#34;&#34;
+    self._inc()
+    assert sub in main, msg or &#34;Object not in iterable&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.assert_calls"><code class="name flex">
+<span>def <span class="ident">assert_calls</span></span>(<span>self, expected, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Validates the number of assertions made on the Check instance.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>expected_count</code></strong> :&ensp;<code>int</code></dt>
+<dd>The expected number of assertions that should have been made.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the number of assertions made does not match the expected_count.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check = Check()
+&gt;&gt;&gt; check.reset()
+&gt;&gt;&gt; check.equal(1, 1)
+&gt;&gt;&gt; check.notEqual(1, 2)
+&gt;&gt;&gt; check.assert_calls(2)  # Should pass as exactly two assertions have been made
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def assert_calls(self, expected, msg=None):
+    &#34;&#34;&#34;
+    Validates the number of assertions made on the Check instance.
+
+    Args:
+        expected_count (int): The expected number of assertions that should have been made.
+
+    Raises:
+        AssertionError: If the number of assertions made does not match the expected_count.
+
+    Examples:
+        &gt;&gt;&gt; check = Check()
+        &gt;&gt;&gt; check.reset()
+        &gt;&gt;&gt; check.equal(1, 1)
+        &gt;&gt;&gt; check.notEqual(1, 2)
+        &gt;&gt;&gt; check.assert_calls(2)  # Should pass as exactly two assertions have been made
+    &#34;&#34;&#34;
+    assert self._count == expected, msg or &#34;expected %d calls, got %d&#34; % (
+        expected,
+        self._count,
+    )</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.deepEqual"><code class="name flex">
+<span>def <span class="ident">deepEqual</span></span>(<span>self, obj1, obj2, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if two given objects are identical (same memory location).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj1</code></strong></dt>
+<dd>The first object to be compared.</dd>
+<dt><strong><code>obj2</code></strong></dt>
+<dd>The second object to be compared.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the objects are not identical.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = a
+&gt;&gt;&gt; check.deepEqual(a, b)  # Passes when objects are identical
+&gt;&gt;&gt; check.deepEqual(a, [1, 2, 3])  # Fails when objects are not identical
+Traceback (most recent call last):
+    ...
+AssertionError: Objects are not the same (not identical)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def deepEqual(self, obj1, obj2, msg=None):
+    &#34;&#34;&#34;
+    Checks if two given objects are identical (same memory location).
+
+    Args:
+        obj1: The first object to be compared.
+        obj2: The second object to be compared.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the objects are not identical.
+
+    Examples:
+        &gt;&gt;&gt; a = [1, 2, 3]
+        &gt;&gt;&gt; b = a
+        &gt;&gt;&gt; check.deepEqual(a, b)  # Passes when objects are identical
+        &gt;&gt;&gt; check.deepEqual(a, [1, 2, 3])  # Fails when objects are not identical
+        Traceback (most recent call last):
+            ...
+        AssertionError: Objects are not the same (not identical)
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj1 is obj2, msg or &#34;Objects are not the same (not identical)&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.equal"><code class="name flex">
+<span>def <span class="ident">equal</span></span>(<span>self, obj1, obj2, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if two given objects are equal.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj1</code></strong></dt>
+<dd>The first object to be compared.</dd>
+<dt><strong><code>obj2</code></strong></dt>
+<dd>The second object to be compared.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the objects are not equal.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.equal(1, 1)  # Passes when objects are equal
+&gt;&gt;&gt; check.equal(1, 2)  # Fails when objects are not equal
+Traceback (most recent call last):
+    ...
+AssertionError: Objects are not equal
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def equal(self, obj1, obj2, msg=None):
+    &#34;&#34;&#34;
+    Checks if two given objects are equal.
+
+    Args:
+        obj1: The first object to be compared.
+        obj2: The second object to be compared.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the objects are not equal.
+
+    Examples:
+        &gt;&gt;&gt; check.equal(1, 1)  # Passes when objects are equal
+        &gt;&gt;&gt; check.equal(1, 2)  # Fails when objects are not equal
+        Traceback (most recent call last):
+            ...
+        AssertionError: Objects are not equal
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj1 == obj2, msg or &#34;Objects are not equal&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isAbove"><code class="name flex">
+<span>def <span class="ident">isAbove</span></span>(<span>self, obj1, obj2, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the first object is greater than the second object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj1</code></strong></dt>
+<dd>The first object to be compared.</dd>
+<dt><strong><code>obj2</code></strong></dt>
+<dd>The second object to be compared.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If obj1 is not greater than obj2.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isAbove(2, 1)  # Passes when obj1 is greater than obj2
+&gt;&gt;&gt; check.isAbove(1, 2)  # Fails when obj1 is not greater than obj2
+Traceback (most recent call last):
+    ...
+AssertionError: Object is below
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isAbove(self, obj1, obj2, msg=None):
+    &#34;&#34;&#34;
+    Checks if the first object is greater than the second object.
+
+    Args:
+        obj1: The first object to be compared.
+        obj2: The second object to be compared.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If obj1 is not greater than obj2.
+
+    Examples:
+        &gt;&gt;&gt; check.isAbove(2, 1)  # Passes when obj1 is greater than obj2
+        &gt;&gt;&gt; check.isAbove(1, 2)  # Fails when obj1 is not greater than obj2
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is below
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj1 &gt; obj2, msg or &#34;Object is below&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isAboveOrEqual"><code class="name flex">
+<span>def <span class="ident">isAboveOrEqual</span></span>(<span>self, obj1, obj2, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the first object is greater than or equal to the second object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj1</code></strong></dt>
+<dd>The first object to be compared.</dd>
+<dt><strong><code>obj2</code></strong></dt>
+<dd>The second object to be compared.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If obj1 is not greater than or equal to obj2.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isAboveOrEqual(2, 1)  # Passes when obj1 is greater than or equal to obj2
+&gt;&gt;&gt; check.isAboveOrEqual(1, 2)  # Fails when obj1 is not greater than or equal to obj2
+Traceback (most recent call last):
+    ...
+AssertionError: Object is below
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isAboveOrEqual(self, obj1, obj2, msg=None):
+    &#34;&#34;&#34;
+    Checks if the first object is greater than or equal to the second object.
+
+    Args:
+        obj1: The first object to be compared.
+        obj2: The second object to be compared.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If obj1 is not greater than or equal to obj2.
+
+    Examples:
+        &gt;&gt;&gt; check.isAboveOrEqual(2, 1)  # Passes when obj1 is greater than or equal to obj2
+        &gt;&gt;&gt; check.isAboveOrEqual(1, 2)  # Fails when obj1 is not greater than or equal to obj2
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is below
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj1 &gt;= obj2, msg or &#34;Object is below&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isBelow"><code class="name flex">
+<span>def <span class="ident">isBelow</span></span>(<span>self, obj1, obj2, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the first object is less than the second object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj1</code></strong></dt>
+<dd>The first object to be compared.</dd>
+<dt><strong><code>obj2</code></strong></dt>
+<dd>The second object to be compared.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If obj1 is not less than obj2.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isBelow(1, 2)  # Passes when obj1 is less than obj2
+&gt;&gt;&gt; check.isBelow(2, 1)  # Fails when obj1 is not less than obj2
+Traceback (most recent call last):
+    ...
+AssertionError: Object is above
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isBelow(self, obj1, obj2, msg=None):
+    &#34;&#34;&#34;
+    Checks if the first object is less than the second object.
+
+    Args:
+        obj1: The first object to be compared.
+        obj2: The second object to be compared.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If obj1 is not less than obj2.
+
+    Examples:
+        &gt;&gt;&gt; check.isBelow(1, 2)  # Passes when obj1 is less than obj2
+        &gt;&gt;&gt; check.isBelow(2, 1)  # Fails when obj1 is not less than obj2
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is above
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj1 &lt; obj2, msg or &#34;Object is above&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isBelowOrEqual"><code class="name flex">
+<span>def <span class="ident">isBelowOrEqual</span></span>(<span>self, obj1, obj2, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the first object is less than or equal to the second object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj1</code></strong></dt>
+<dd>The first object to be compared.</dd>
+<dt><strong><code>obj2</code></strong></dt>
+<dd>The second object to be compared.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If obj1 is not less than or equal to obj2.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isBelowOrEqual(1, 2)  # Passes when obj1 is less than or equal to obj2
+&gt;&gt;&gt; check.isBelowOrEqual(2, 1)  # Fails when obj1 is not less than or equal to obj2
+Traceback (most recent call last):
+    ...
+AssertionError: Object is above
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isBelowOrEqual(self, obj1, obj2, msg=None):
+    &#34;&#34;&#34;
+    Checks if the first object is less than or equal to the second object.
+
+    Args:
+        obj1: The first object to be compared.
+        obj2: The second object to be compared.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If obj1 is not less than or equal to obj2.
+
+    Examples:
+        &gt;&gt;&gt; check.isBelowOrEqual(1, 2)  # Passes when obj1 is less than or equal to obj2
+        &gt;&gt;&gt; check.isBelowOrEqual(2, 1)  # Fails when obj1 is not less than or equal to obj2
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is above
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj1 &lt;= obj2, msg or &#34;Object is above&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isBinary"><code class="name flex">
+<span>def <span class="ident">isBinary</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is a binary string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not a binary string.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isBinary(b'binary')  # Passes when object is a binary string
+&gt;&gt;&gt; check.isBinary('not binary')  # Fails when object is not a binary string
+Traceback (most recent call last):
+    ...
+AssertionError: Object is not a binary string
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isBinary(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is a binary string.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not a binary string.
+
+    Examples:
+        &gt;&gt;&gt; check.isBinary(b&#39;binary&#39;)  # Passes when object is a binary string
+        &gt;&gt;&gt; check.isBinary(&#39;not binary&#39;)  # Fails when object is not a binary string
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is not a binary string
+    &#34;&#34;&#34;
+    self._inc()
+    assert isinstance(obj, bytes), msg or &#34;Object is not a binary string&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isBool"><code class="name flex">
+<span>def <span class="ident">isBool</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is a boolean.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not a boolean.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isBool(True)  # Passes when object is a boolean
+&gt;&gt;&gt; check.isBool(1)  # Fails when object is not a boolean
+Traceback (most recent call last):
+    ...
+AssertionError: Object is not a boolean
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isBool(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is a boolean.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not a boolean.
+
+    Examples:
+        &gt;&gt;&gt; check.isBool(True)  # Passes when object is a boolean
+        &gt;&gt;&gt; check.isBool(1)  # Fails when object is not a boolean
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is not a boolean
+    &#34;&#34;&#34;
+    self._inc()
+    assert isinstance(obj, bool), msg or &#34;Object is not a boolean&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isCallable"><code class="name flex">
+<span>def <span class="ident">isCallable</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is callable (e.g., a function or method).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not callable.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isCallable(lambda x: x + 1)  # Passes when object is callable
+&gt;&gt;&gt; check.isCallable(&quot;not callable&quot;)  # Fails when object is not callable
+Traceback (most recent call last):
+    ...
+AssertionError: Object is not callable
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isCallable(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is callable (e.g., a function or method).
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not callable.
+
+    Examples:
+        &gt;&gt;&gt; check.isCallable(lambda x: x + 1)  # Passes when object is callable
+        &gt;&gt;&gt; check.isCallable(&#34;not callable&#34;)  # Fails when object is not callable
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is not callable
+    &#34;&#34;&#34;
+    self._inc()
+    assert callable(obj), msg or &#34;Object is not callable&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isDict"><code class="name flex">
+<span>def <span class="ident">isDict</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is a dictionary.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not a dictionary.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isDict({&quot;key&quot;: &quot;value&quot;})  # Passes when object is a dictionary
+&gt;&gt;&gt; check.isDict([1, 2, 3])  # Fails when object is not a dictionary
+Traceback (most recent call last):
+    ...
+AssertionError: Object is not a dict
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isDict(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is a dictionary.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not a dictionary.
+
+    Examples:
+        &gt;&gt;&gt; check.isDict({&#34;key&#34;: &#34;value&#34;})  # Passes when object is a dictionary
+        &gt;&gt;&gt; check.isDict([1, 2, 3])  # Fails when object is not a dictionary
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is not a dict
+    &#34;&#34;&#34;
+    self._inc()
+    assert isinstance(obj, dict), msg or &#34;Object is not a dict&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isDictSubset"><code class="name flex">
+<span>def <span class="ident">isDictSubset</span></span>(<span>self, sub_dict, main_dict, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given dictionary is a subset of another dictionary.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>subset</code></strong> :&ensp;<code>dict</code></dt>
+<dd>The subset dictionary to be checked.</dd>
+<dt><strong><code>superset</code></strong> :&ensp;<code>dict</code></dt>
+<dd>The superset dictionary against which to check.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the subset dictionary is not a subset of the superset dictionary.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isDictSubset({'a': 1}, {'a': 1, 'b': 2})  # Passes when subset is a subset of superset
+&gt;&gt;&gt; check.isDictSubset({'a': 1, 'c': 3}, {'a': 1, 'b': 2})  # Fails when subset is not a subset of superset
+Traceback (most recent call last):
+    ...
+AssertionError: sub_dict is not in main_dict
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isDictSubset(self, sub_dict, main_dict, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given dictionary is a subset of another dictionary.
+
+    Args:
+        subset (dict): The subset dictionary to be checked.
+        superset (dict): The superset dictionary against which to check.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the subset dictionary is not a subset of the superset dictionary.
+
+    Examples:
+        &gt;&gt;&gt; check.isDictSubset({&#39;a&#39;: 1}, {&#39;a&#39;: 1, &#39;b&#39;: 2})  # Passes when subset is a subset of superset
+        &gt;&gt;&gt; check.isDictSubset({&#39;a&#39;: 1, &#39;c&#39;: 3}, {&#39;a&#39;: 1, &#39;b&#39;: 2})  # Fails when subset is not a subset of superset
+        Traceback (most recent call last):
+            ...
+        AssertionError: sub_dict is not in main_dict
+    &#34;&#34;&#34;
+    self._inc()
+    assert all(item in main_dict.items() for item in sub_dict.items()), (
+        msg or &#34;sub_dict is not in main_dict&#34;
+    )</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isFalse"><code class="name flex">
+<span>def <span class="ident">isFalse</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is False.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not False.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isFalse(False)  # Passes when object is False
+&gt;&gt;&gt; check.isFalse(True)  # Fails when object is not False
+Traceback (most recent call last):
+    ...
+AssertionError: Object not False
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isFalse(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is False.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not False.
+
+    Examples:
+        &gt;&gt;&gt; check.isFalse(False)  # Passes when object is False
+        &gt;&gt;&gt; check.isFalse(True)  # Fails when object is not False
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object not False
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj is False, msg or &#34;Object not False&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isFloat"><code class="name flex">
+<span>def <span class="ident">isFloat</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is a float.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not a float.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isFloat(1.5)  # Passes when object is a float
+&gt;&gt;&gt; check.isFloat(1)  # Fails when object is not a float
+Traceback (most recent call last):
+    ...
+AssertionError: Object is not a float
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isFloat(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is a float.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not a float.
+
+    Examples:
+        &gt;&gt;&gt; check.isFloat(1.5)  # Passes when object is a float
+        &gt;&gt;&gt; check.isFloat(1)  # Fails when object is not a float
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is not a float
+    &#34;&#34;&#34;
+    self._inc()
+    assert isinstance(obj, float), msg or &#34;Object is not a float&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isInf"><code class="name flex">
+<span>def <span class="ident">isInf</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is a finite number.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not a finite number.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isInf(float('inf'))  # Passes when object is a finite number
+&gt;&gt;&gt; check.isInf(1)  # Fails when object is not a finite number
+Traceback (most recent call last):
+    ...
+AssertionError: Object is not Inf
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isInf(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is a finite number.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not a finite number.
+
+    Examples:
+        &gt;&gt;&gt; check.isInf(float(&#39;inf&#39;))  # Passes when object is a finite number
+        &gt;&gt;&gt; check.isInf(1)  # Fails when object is not a finite number
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is not Inf
+    &#34;&#34;&#34;
+    self._inc()
+    assert math.isinf(obj), msg or &#34;Object is not Inf&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isInt"><code class="name flex">
+<span>def <span class="ident">isInt</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is an integer.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not an integer.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isInt(1)  # Passes when object is an integer
+&gt;&gt;&gt; check.isInt(1.5)  # Fails when object is not an integer
+Traceback (most recent call last):
+    ...
+AssertionError: Object is not an integer
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isInt(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is an integer.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not an integer.
+
+    Examples:
+        &gt;&gt;&gt; check.isInt(1)  # Passes when object is an integer
+        &gt;&gt;&gt; check.isInt(1.5)  # Fails when object is not an integer
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is not an integer
+    &#34;&#34;&#34;
+    self._inc()
+    assert isinstance(obj, int), msg or &#34;Object is not an integer&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isList"><code class="name flex">
+<span>def <span class="ident">isList</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is a list.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not a list.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isList([1, 2, 3])  # Passes when object is a list
+&gt;&gt;&gt; check.isList({&quot;key&quot;: &quot;value&quot;})  # Fails when object is not a list
+Traceback (most recent call last):
+    ...
+AssertionError: Object is not a list
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isList(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is a list.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not a list.
+
+    Examples:
+        &gt;&gt;&gt; check.isList([1, 2, 3])  # Passes when object is a list
+        &gt;&gt;&gt; check.isList({&#34;key&#34;: &#34;value&#34;})  # Fails when object is not a list
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is not a list
+    &#34;&#34;&#34;
+    self._inc()
+    assert isinstance(obj, list), msg or &#34;Object is not a list&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isListSubset"><code class="name flex">
+<span>def <span class="ident">isListSubset</span></span>(<span>self, sub_list, main_list, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given list is a subset of another list.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>subset</code></strong> :&ensp;<code>list</code></dt>
+<dd>The subset list to be checked.</dd>
+<dt><strong><code>superset</code></strong> :&ensp;<code>list</code></dt>
+<dd>The superset list against which to check.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the subset list is not a subset of the superset list.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isListSubset([1], [1, 2, 3])  # Passes when subset is a subset of superset
+&gt;&gt;&gt; check.isListSubset([1, 4], [1, 2, 3])  # Fails when subset is not a subset of superset
+Traceback (most recent call last):
+    ...
+AssertionError: sub_list is not in main_list
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isListSubset(self, sub_list, main_list, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given list is a subset of another list.
+
+    Args:
+        subset (list): The subset list to be checked.
+        superset (list): The superset list against which to check.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the subset list is not a subset of the superset list.
+
+    Examples:
+        &gt;&gt;&gt; check.isListSubset([1], [1, 2, 3])  # Passes when subset is a subset of superset
+        &gt;&gt;&gt; check.isListSubset([1, 4], [1, 2, 3])  # Fails when subset is not a subset of superset
+        Traceback (most recent call last):
+            ...
+        AssertionError: sub_list is not in main_list
+    &#34;&#34;&#34;
+
+    self._inc()
+    assert all(i in main_list for i in sub_list), (
+        msg or &#34;sub_list is not in main_list&#34;
+    )</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isNan"><code class="name flex">
+<span>def <span class="ident">isNan</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is NaN (Not a Number).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not NaN.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; import math
+&gt;&gt;&gt; check.isNan(math.nan)  # Passes when object is NaN
+&gt;&gt;&gt; check.isNan(1)  # Fails when object is not NaN
+Traceback (most recent call last):
+    ...
+AssertionError: Object is not NaN
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isNan(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is NaN (Not a Number).
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not NaN.
+
+    Examples:
+        &gt;&gt;&gt; import math
+        &gt;&gt;&gt; check.isNan(math.nan)  # Passes when object is NaN
+        &gt;&gt;&gt; check.isNan(1)  # Fails when object is not NaN
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is not NaN
+    &#34;&#34;&#34;
+    self._inc()
+    assert math.isnan(obj), msg or &#34;Object is not NaN&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isNone"><code class="name flex">
+<span>def <span class="ident">isNone</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is None.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked for None.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the provided object is not None.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isNone(None)  # Passes when None is provided
+&gt;&gt;&gt; check.isNone(False)  # Fails when False is provided
+Traceback (most recent call last):
+    ...
+AssertionError: Object is not None
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isNone(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is None.
+
+    Args:
+        obj: The object to be checked for None.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the provided object is not None.
+
+    Examples:
+        &gt;&gt;&gt; check.isNone(None)  # Passes when None is provided
+        &gt;&gt;&gt; check.isNone(False)  # Fails when False is provided
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is not None
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj is None, msg or &#34;Object is not None&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isNotInf"><code class="name flex">
+<span>def <span class="ident">isNotInf</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is not an infinite number.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is infinite.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isNotInf(1)  # Passes when object is not infinite
+&gt;&gt;&gt; import math
+&gt;&gt;&gt; check.isNotInf(math.inf)  # Fails when object is infinite
+Traceback (most recent call last):
+    ...
+AssertionError: Object is infinite
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isNotInf(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is not an infinite number.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is infinite.
+
+    Examples:
+        &gt;&gt;&gt; check.isNotInf(1)  # Passes when object is not infinite
+        &gt;&gt;&gt; import math
+        &gt;&gt;&gt; check.isNotInf(math.inf)  # Fails when object is infinite
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is infinite
+    &#34;&#34;&#34;
+    self._inc()
+    assert not math.isinf(obj), msg or &#34;Object is infinite&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isNotNan"><code class="name flex">
+<span>def <span class="ident">isNotNan</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is not NaN (Not a Number).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is NaN.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isNotNan(1)  # Passes when object is not NaN
+&gt;&gt;&gt; import math
+&gt;&gt;&gt; check.isNotNan(math.nan)  # Fails when object is NaN
+Traceback (most recent call last):
+    ...
+AssertionError: Object is NaN
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isNotNan(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is not NaN (Not a Number).
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is NaN.
+
+    Examples:
+        &gt;&gt;&gt; check.isNotNan(1)  # Passes when object is not NaN
+        &gt;&gt;&gt; import math
+        &gt;&gt;&gt; check.isNotNan(math.nan)  # Fails when object is NaN
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is NaN
+    &#34;&#34;&#34;
+    self._inc()
+    assert not math.isnan(obj), msg or &#34;Object is NaN&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isNotNone"><code class="name flex">
+<span>def <span class="ident">isNotNone</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is not None.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is None.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isNotNone(&quot;not None&quot;)  # Passes when not None
+&gt;&gt;&gt; check.isNotNone(None)  # Fails when None
+Traceback (most recent call last):
+    ...
+AssertionError: Object is None
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isNotNone(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is not None.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is None.
+
+    Examples:
+        &gt;&gt;&gt; check.isNotNone(&#34;not None&#34;)  # Passes when not None
+        &gt;&gt;&gt; check.isNotNone(None)  # Fails when None
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is None
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj is not None, msg or &#34;Object is None&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isNotOk"><code class="name flex">
+<span>def <span class="ident">isNotOk</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is falsy (e.g., 0, None, False).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is truthy.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isNotOk(0)  # Passes when object is falsy
+&gt;&gt;&gt; check.isNotOk(1)  # Fails when object is truthy
+Traceback (most recent call last):
+    ...
+AssertionError: Object is truthy
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isNotOk(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is falsy (e.g., 0, None, False).
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is truthy.
+
+    Examples:
+        &gt;&gt;&gt; check.isNotOk(0)  # Passes when object is falsy
+        &gt;&gt;&gt; check.isNotOk(1)  # Fails when object is truthy
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is truthy
+    &#34;&#34;&#34;
+    self._inc()
+    assert not obj, msg or &#34;Object is truthy&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isNotZero"><code class="name flex">
+<span>def <span class="ident">isNotZero</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is zero.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not zero.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isZero(0)  # Passes when object is 0
+&gt;&gt;&gt; check.isZero(1)  # Fails when object is not 0
+Traceback (most recent call last):
+    ...
+AssertionError: Object not 0
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isNotZero(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is zero.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not zero.
+
+    Examples:
+        &gt;&gt;&gt; check.isZero(0)  # Passes when object is 0
+        &gt;&gt;&gt; check.isZero(1)  # Fails when object is not 0
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object not 0
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj != 0, msg or &#34;Object is 0&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isOk"><code class="name flex">
+<span>def <span class="ident">isOk</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is truthy (e.g., not 0, None, False).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is falsy.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isOk(1)  # Passes when object is truthy
+&gt;&gt;&gt; check.isOk(0)  # Fails when object is falsy
+Traceback (most recent call last):
+    ...
+AssertionError: Object is falsy
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isOk(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is truthy (e.g., not 0, None, False).
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is falsy.
+
+    Examples:
+        &gt;&gt;&gt; check.isOk(1)  # Passes when object is truthy
+        &gt;&gt;&gt; check.isOk(0)  # Fails when object is falsy
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is falsy
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj, msg or &#34;Object is falsy&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isStr"><code class="name flex">
+<span>def <span class="ident">isStr</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is a string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not a string.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isStr(&quot;hello&quot;)  # Passes when object is a string
+&gt;&gt;&gt; check.isStr(1)  # Fails when object is not a string
+Traceback (most recent call last):
+    ...
+AssertionError: Object is not a string
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isStr(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is a string.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not a string.
+
+    Examples:
+        &gt;&gt;&gt; check.isStr(&#34;hello&#34;)  # Passes when object is a string
+        &gt;&gt;&gt; check.isStr(1)  # Fails when object is not a string
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object is not a string
+    &#34;&#34;&#34;
+    self._inc()
+    assert isinstance(obj, str), msg or &#34;Object is not a string&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isTrue"><code class="name flex">
+<span>def <span class="ident">isTrue</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is True.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not True.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isTrue(True)  # Passes when object is True
+&gt;&gt;&gt; check.isTrue(False)  # Fails when object is not True
+Traceback (most recent call last):
+    ...
+AssertionError: Object not True
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isTrue(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is True.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not True.
+
+    Examples:
+        &gt;&gt;&gt; check.isTrue(True)  # Passes when object is True
+        &gt;&gt;&gt; check.isTrue(False)  # Fails when object is not True
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object not True
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj is True, msg or &#34;Object not True&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.isZero"><code class="name flex">
+<span>def <span class="ident">isZero</span></span>(<span>self, obj, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object is zero.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object is not zero.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.isZero(0)  # Passes when object is 0
+&gt;&gt;&gt; check.isZero(1)  # Fails when object is not 0
+Traceback (most recent call last):
+    ...
+AssertionError: Object not 0
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isZero(self, obj, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object is zero.
+
+    Args:
+        obj: The object to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object is not zero.
+
+    Examples:
+        &gt;&gt;&gt; check.isZero(0)  # Passes when object is 0
+        &gt;&gt;&gt; check.isZero(1)  # Fails when object is not 0
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object not 0
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj == 0, msg or &#34;Object not 0&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.lengthOf"><code class="name flex">
+<span>def <span class="ident">lengthOf</span></span>(<span>self, obj, length, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def lengthOf(self, obj, length, msg=None):
+    self._inc()
+    assert len(obj) == length, msg or &#34;Object has wrong length&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.match"><code class="name flex">
+<span>def <span class="ident">match</span></span>(<span>self, pattern, text, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given string matches the specified regular expression pattern.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>pattern</code></strong> :&ensp;<code>str</code></dt>
+<dd>The regular expression pattern.</dd>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>The string to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the string does not match the pattern.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.match(r'\d+', '123')  # Passes when string matches the pattern
+&gt;&gt;&gt; check.match(r'\d+', 'abc')  # Fails when string does not match the pattern
+Traceback (most recent call last):
+    ...
+AssertionError: pattern `\d+` does not match text &lt;code&gt;abc&lt;/code&gt;
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def match(self, pattern, text, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given string matches the specified regular expression pattern.
+
+    Args:
+        pattern (str): The regular expression pattern.
+        string (str): The string to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the string does not match the pattern.
+
+    Examples:
+        &gt;&gt;&gt; check.match(r&#39;\d+&#39;, &#39;123&#39;)  # Passes when string matches the pattern
+        &gt;&gt;&gt; check.match(r&#39;\d+&#39;, &#39;abc&#39;)  # Fails when string does not match the pattern
+        Traceback (most recent call last):
+            ...
+        AssertionError: pattern `\d+` does not match text `abc`
+    &#34;&#34;&#34;
+    self._inc()
+    assert re.match(pattern, text), (
+        msg or f&#34;pattern `{pattern}` does not match text `{text}`&#34;
+    )</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.notDeepEqual"><code class="name flex">
+<span>def <span class="ident">notDeepEqual</span></span>(<span>self, obj1, obj2, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if two given objects are not identical (do not refer to the same memory location).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj1</code></strong></dt>
+<dd>The first object to be compared.</dd>
+<dt><strong><code>obj2</code></strong></dt>
+<dd>The second object to be compared.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the objects are identical.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; check.notDeepEqual(a, [1, 2, 3])  # Passes when objects are not identical
+&gt;&gt;&gt; b = a
+&gt;&gt;&gt; check.notDeepEqual(a, b)  # Fails when objects are identical
+Traceback (most recent call last):
+    ...
+AssertionError: Objects are the same (identical)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def notDeepEqual(self, obj1, obj2, msg=None):
+    &#34;&#34;&#34;
+    Checks if two given objects are not identical (do not refer to the same memory location).
+
+    Args:
+        obj1: The first object to be compared.
+        obj2: The second object to be compared.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the objects are identical.
+
+    Examples:
+        &gt;&gt;&gt; a = [1, 2, 3]
+        &gt;&gt;&gt; check.notDeepEqual(a, [1, 2, 3])  # Passes when objects are not identical
+        &gt;&gt;&gt; b = a
+        &gt;&gt;&gt; check.notDeepEqual(a, b)  # Fails when objects are identical
+        Traceback (most recent call last):
+            ...
+        AssertionError: Objects are the same (identical)
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj1 is not obj2, msg or &#34;Objects are the same (identical)&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.notEqual"><code class="name flex">
+<span>def <span class="ident">notEqual</span></span>(<span>self, obj1, obj2, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if two given objects are not equal.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj1</code></strong></dt>
+<dd>The first object to be compared.</dd>
+<dt><strong><code>obj2</code></strong></dt>
+<dd>The second object to be compared.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the objects are equal.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.notEqual(1, 2)  # Passes when objects are not equal
+&gt;&gt;&gt; check.notEqual(1, 1)  # Fails when objects are equal
+Traceback (most recent call last):
+    ...
+AssertionError: Objects are equal
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def notEqual(self, obj1, obj2, msg=None):
+    &#34;&#34;&#34;
+    Checks if two given objects are not equal.
+
+    Args:
+        obj1: The first object to be compared.
+        obj2: The second object to be compared.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the objects are equal.
+
+    Examples:
+        &gt;&gt;&gt; check.notEqual(1, 2)  # Passes when objects are not equal
+        &gt;&gt;&gt; check.notEqual(1, 1)  # Fails when objects are equal
+        Traceback (most recent call last):
+            ...
+        AssertionError: Objects are equal
+    &#34;&#34;&#34;
+    self._inc()
+    assert obj1 != obj2, msg or &#34;Objects are equal&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.notIn"><code class="name flex">
+<span>def <span class="ident">notIn</span></span>(<span>self, sub, main, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given object does not exist within the specified iterable.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>The object to be checked.</dd>
+<dt><strong><code>iterable</code></strong></dt>
+<dd>The iterable in which to check for the object.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the object exists in the iterable.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.notIn(4, [1, 2, 3])  # Passes when object is not in iterable
+&gt;&gt;&gt; check.notIn(1, [1, 2, 3])  # Fails when object is in iterable
+Traceback (most recent call last):
+    ...
+AssertionError: Object in iterable
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def notIn(self, sub, main, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given object does not exist within the specified iterable.
+
+    Args:
+        obj: The object to be checked.
+        iterable: The iterable in which to check for the object.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the object exists in the iterable.
+
+    Examples:
+        &gt;&gt;&gt; check.notIn(4, [1, 2, 3])  # Passes when object is not in iterable
+        &gt;&gt;&gt; check.notIn(1, [1, 2, 3])  # Fails when object is in iterable
+        Traceback (most recent call last):
+            ...
+        AssertionError: Object in iterable
+    &#34;&#34;&#34;
+    self._inc()
+    assert sub not in main, msg or &#34;Object in iterable&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.notMatch"><code class="name flex">
+<span>def <span class="ident">notMatch</span></span>(<span>self, pattern, text, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given string does not match the specified regular expression pattern.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>pattern</code></strong> :&ensp;<code>str</code></dt>
+<dd>The regular expression pattern.</dd>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>The string to be checked.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>An optional message to be displayed if the check fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the string matches the pattern.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.notMatch(r'\d+', 'abc')  # Passes when string does not match the pattern
+&gt;&gt;&gt; check.notMatch(r'\d+', '123')  # Fails when string matches the pattern
+Traceback (most recent call last):
+    ...
+AssertionError: Pattern matched
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def notMatch(self, pattern, text, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given string does not match the specified regular expression pattern.
+
+    Args:
+        pattern (str): The regular expression pattern.
+        string (str): The string to be checked.
+        msg (str, optional): An optional message to be displayed if the check fails.
+
+    Raises:
+        AssertionError: If the string matches the pattern.
+
+    Examples:
+        &gt;&gt;&gt; check.notMatch(r&#39;\\d+&#39;, &#39;abc&#39;)  # Passes when string does not match the pattern
+        &gt;&gt;&gt; check.notMatch(r&#39;\\d+&#39;, &#39;123&#39;)  # Fails when string matches the pattern
+        Traceback (most recent call last):
+            ...
+        AssertionError: Pattern matched
+    &#34;&#34;&#34;
+    self._inc()
+    assert not re.match(pattern, text), msg or &#34;Pattern matched&#34;</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.raises"><code class="name flex">
+<span>def <span class="ident">raises</span></span>(<span>self, fn, exc, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the given callable raises the specified exception when called.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>exc_type</code></strong> :&ensp;<code>Exception</code></dt>
+<dd>The type of exception expected.</dd>
+<dt><strong><code>callable_obj</code></strong></dt>
+<dd>The callable object to be checked.</dd>
+<dt><strong><code>*args</code></strong></dt>
+<dd>Arguments to pass to the callable.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Keyword arguments to pass to the callable.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the callable does not raise the expected exception.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; fn = lambda: 2 / 0
+&gt;&gt;&gt; check.raises(fn, ZeroDivisionError)
+&gt;&gt;&gt; check.raises(fn, ValueError)
+Traceback (most recent call last):
+    ...
+AssertionError: Function raised ZeroDivisionError
+&gt;&gt;&gt; fn = lambda: 1
+&gt;&gt;&gt; check.raises(fn, ValueError)
+Traceback (most recent call last):
+    ...
+AssertionError: Function did not raise exception
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def raises(self, fn, exc, msg=None):
+    &#34;&#34;&#34;
+    Checks if the given callable raises the specified exception when called.
+
+    Args:
+        exc_type (Exception): The type of exception expected.
+        callable_obj: The callable object to be checked.
+        *args: Arguments to pass to the callable.
+        **kwargs: Keyword arguments to pass to the callable.
+
+    Raises:
+        AssertionError: If the callable does not raise the expected exception.
+
+    Examples:
+        &gt;&gt;&gt; fn = lambda: 2 / 0
+        &gt;&gt;&gt; check.raises(fn, ZeroDivisionError)
+        &gt;&gt;&gt; check.raises(fn, ValueError)
+        Traceback (most recent call last):
+            ...
+        AssertionError: Function raised ZeroDivisionError
+        &gt;&gt;&gt; fn = lambda: 1
+        &gt;&gt;&gt; check.raises(fn, ValueError)
+        Traceback (most recent call last):
+            ...
+        AssertionError: Function did not raise exception
+    &#34;&#34;&#34;
+    self._inc()
+    try:
+        fn()
+    except exc:
+        return
+    except Exception as e:
+        exception_class = type(e)
+        raise AssertionError(
+            msg or f&#34;Function raised {exception_class.__name__}&#34;
+        ) from None
+    else:
+        raise AssertionError(msg or &#34;Function did not raise exception&#34;)</code></pre>
+</details>
+</dd>
+<dt id="check-library.check.Check.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resets the internal assertion counter of the Check instance to its initial state.</p>
+<p>This method is useful for resetting the state of the Check instance when you
+want to start a new set of assertions without creating a new instance.</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check = Check()
+&gt;&gt;&gt; check.reset()
+&gt;&gt;&gt; check.equal(1, 1)  # This will be the first assertion after reset
+&gt;&gt;&gt; check.assert_calls(1)  # Should pass as there's only one assertion after reset
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    &#34;&#34;&#34;
+    Resets the internal assertion counter of the Check instance to its initial state.
+
+    This method is useful for resetting the state of the Check instance when you
+    want to start a new set of assertions without creating a new instance.
+
+    Examples:
+        &gt;&gt;&gt; check = Check()
+        &gt;&gt;&gt; check.reset()
+        &gt;&gt;&gt; check.equal(1, 1)  # This will be the first assertion after reset
+        &gt;&gt;&gt; check.assert_calls(1)  # Should pass as there&#39;s only one assertion after reset
+    &#34;&#34;&#34;
+    self._count = 0</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="check-library" href="index.html">check-library</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="check-library.check.Check" href="#check-library.check.Check">Check</a></code></h4>
+<ul class="two-column">
+<li><code><a title="check-library.check.Check.In" href="#check-library.check.Check.In">In</a></code></li>
+<li><code><a title="check-library.check.Check.assert_calls" href="#check-library.check.Check.assert_calls">assert_calls</a></code></li>
+<li><code><a title="check-library.check.Check.deepEqual" href="#check-library.check.Check.deepEqual">deepEqual</a></code></li>
+<li><code><a title="check-library.check.Check.equal" href="#check-library.check.Check.equal">equal</a></code></li>
+<li><code><a title="check-library.check.Check.isAbove" href="#check-library.check.Check.isAbove">isAbove</a></code></li>
+<li><code><a title="check-library.check.Check.isAboveOrEqual" href="#check-library.check.Check.isAboveOrEqual">isAboveOrEqual</a></code></li>
+<li><code><a title="check-library.check.Check.isBelow" href="#check-library.check.Check.isBelow">isBelow</a></code></li>
+<li><code><a title="check-library.check.Check.isBelowOrEqual" href="#check-library.check.Check.isBelowOrEqual">isBelowOrEqual</a></code></li>
+<li><code><a title="check-library.check.Check.isBinary" href="#check-library.check.Check.isBinary">isBinary</a></code></li>
+<li><code><a title="check-library.check.Check.isBool" href="#check-library.check.Check.isBool">isBool</a></code></li>
+<li><code><a title="check-library.check.Check.isCallable" href="#check-library.check.Check.isCallable">isCallable</a></code></li>
+<li><code><a title="check-library.check.Check.isDict" href="#check-library.check.Check.isDict">isDict</a></code></li>
+<li><code><a title="check-library.check.Check.isDictSubset" href="#check-library.check.Check.isDictSubset">isDictSubset</a></code></li>
+<li><code><a title="check-library.check.Check.isFalse" href="#check-library.check.Check.isFalse">isFalse</a></code></li>
+<li><code><a title="check-library.check.Check.isFloat" href="#check-library.check.Check.isFloat">isFloat</a></code></li>
+<li><code><a title="check-library.check.Check.isInf" href="#check-library.check.Check.isInf">isInf</a></code></li>
+<li><code><a title="check-library.check.Check.isInt" href="#check-library.check.Check.isInt">isInt</a></code></li>
+<li><code><a title="check-library.check.Check.isList" href="#check-library.check.Check.isList">isList</a></code></li>
+<li><code><a title="check-library.check.Check.isListSubset" href="#check-library.check.Check.isListSubset">isListSubset</a></code></li>
+<li><code><a title="check-library.check.Check.isNan" href="#check-library.check.Check.isNan">isNan</a></code></li>
+<li><code><a title="check-library.check.Check.isNone" href="#check-library.check.Check.isNone">isNone</a></code></li>
+<li><code><a title="check-library.check.Check.isNotInf" href="#check-library.check.Check.isNotInf">isNotInf</a></code></li>
+<li><code><a title="check-library.check.Check.isNotNan" href="#check-library.check.Check.isNotNan">isNotNan</a></code></li>
+<li><code><a title="check-library.check.Check.isNotNone" href="#check-library.check.Check.isNotNone">isNotNone</a></code></li>
+<li><code><a title="check-library.check.Check.isNotOk" href="#check-library.check.Check.isNotOk">isNotOk</a></code></li>
+<li><code><a title="check-library.check.Check.isNotZero" href="#check-library.check.Check.isNotZero">isNotZero</a></code></li>
+<li><code><a title="check-library.check.Check.isOk" href="#check-library.check.Check.isOk">isOk</a></code></li>
+<li><code><a title="check-library.check.Check.isStr" href="#check-library.check.Check.isStr">isStr</a></code></li>
+<li><code><a title="check-library.check.Check.isTrue" href="#check-library.check.Check.isTrue">isTrue</a></code></li>
+<li><code><a title="check-library.check.Check.isZero" href="#check-library.check.Check.isZero">isZero</a></code></li>
+<li><code><a title="check-library.check.Check.lengthOf" href="#check-library.check.Check.lengthOf">lengthOf</a></code></li>
+<li><code><a title="check-library.check.Check.match" href="#check-library.check.Check.match">match</a></code></li>
+<li><code><a title="check-library.check.Check.notDeepEqual" href="#check-library.check.Check.notDeepEqual">notDeepEqual</a></code></li>
+<li><code><a title="check-library.check.Check.notEqual" href="#check-library.check.Check.notEqual">notEqual</a></code></li>
+<li><code><a title="check-library.check.Check.notIn" href="#check-library.check.Check.notIn">notIn</a></code></li>
+<li><code><a title="check-library.check.Check.notMatch" href="#check-library.check.Check.notMatch">notMatch</a></code></li>
+<li><code><a title="check-library.check.Check.raises" href="#check-library.check.Check.raises">raises</a></code></li>
+<li><code><a title="check-library.check.Check.reset" href="#check-library.check.Check.reset">reset</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
