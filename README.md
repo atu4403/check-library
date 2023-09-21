@@ -1,4 +1,3 @@
-
 # Check
 
 ## Overview
@@ -7,10 +6,10 @@ The Check library is a Python-based assertion framework designed to simplify the
 
 ## Features
 
-- Comprehensive set of assertion methods for different data types and structures.
-- Support for custom failure messages to improve debugging.
-- Easy-to-understand method naming for better code readability.
-- Minimalistic and lightweight design for quick integration into any project.
+* Comprehensive set of assertion methods for different data types and structures.
+* Support for custom failure messages to improve debugging.
+* Easy-to-understand method naming for better code readability.
+* Minimalistic and lightweight design for quick integration into any project.
 
 ## Installation
 
@@ -43,4 +42,4 @@ check.assert_calls(3)
 
 For more detailed information on using the Check library, please refer to the official documentation.
 
-[Check Docs](https://atu4403.github.io/che)
+[Check Docs](https://atu4403.github.io/check-library)
