@@ -193,10 +193,10 @@ class Check:
             &gt;&gt;&gt; check.equal(1, 2)  # Fails when objects are not equal
             Traceback (most recent call last):
                 ...
-            AssertionError: Objects are not equal
+            AssertionError: 1 != 2
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 == obj2, msg or &#34;Objects are not equal&#34;
+        assert obj1 == obj2, msg or f&#34;{obj1} != {obj2}&#34;
 
     def deepEqual(self, obj1, obj2, msg=None):
         &#34;&#34;&#34;
@@ -239,10 +239,10 @@ class Check:
             &gt;&gt;&gt; check.notEqual(1, 1)  # Fails when objects are equal
             Traceback (most recent call last):
                 ...
-            AssertionError: Objects are equal
+            AssertionError: 1 == 1
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 != obj2, msg or &#34;Objects are equal&#34;
+        assert obj1 != obj2, msg or f&#34;{obj1} == {obj2}&#34;
 
     def notDeepEqual(self, obj1, obj2, msg=None):
         &#34;&#34;&#34;
@@ -877,6 +877,36 @@ class Check:
         else:
             raise AssertionError(msg or &#34;Function did not raise exception&#34;)
 
+    def typeFromStr(self, obj: any, expected_type: str, msg=None):
+        &#34;&#34;&#34;
+        Asserts that the type of the given object matches the expected type as a string.
+
+        Args:
+            obj (any): The object to check the type of.
+            expected_type (str): The expected type as a string (e.g., &#39;int&#39;, &#39;str&#39;, &#39;list&#39;).
+            msg (str, optional): A custom error message to display if the assertion fails.
+
+        Raises:
+            AssertionError: If the type of `obj` does not match the `expected_type`.
+
+        Examples:
+            &gt;&gt;&gt; check.typeFromStr(42, &#39;int&#39;)
+            &gt;&gt;&gt; check.typeFromStr(&#34;Hello, World!&#34;, &#39;str&#39;)
+            &gt;&gt;&gt; check.typeFromStr([1, 2, 3], &#39;list&#39;)
+            &gt;&gt;&gt; check.typeFromStr(1, &#39;str&#39;)
+            Traceback (most recent call last):
+                ...
+            AssertionError: type(1) is int
+
+        Note:
+            This function checks if the type of `obj` matches the `expected_type` as a string.
+            For example, `typeFromStr(42, &#39;int&#39;)` will pass because the type of 42 is &#39;int&#39;.
+            However, `typeFromStr(42, &#39;str&#39;)` will fail because the type of 42 is &#39;int&#39;.
+
+        &#34;&#34;&#34;
+        actual_type = str(type(obj)).split(&#34;&#39;&#34;)[1]
+        assert actual_type == expected_type, msg or f&#34;type({obj}) is {actual_type}&#34;
+
 
 if __name__ == &#34;__main__&#34;:
     import doctest
@@ -1075,10 +1105,10 @@ AssertionError: Numbers are not equal!
             &gt;&gt;&gt; check.equal(1, 2)  # Fails when objects are not equal
             Traceback (most recent call last):
                 ...
-            AssertionError: Objects are not equal
+            AssertionError: 1 != 2
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 == obj2, msg or &#34;Objects are not equal&#34;
+        assert obj1 == obj2, msg or f&#34;{obj1} != {obj2}&#34;
 
     def deepEqual(self, obj1, obj2, msg=None):
         &#34;&#34;&#34;
@@ -1121,10 +1151,10 @@ AssertionError: Numbers are not equal!
             &gt;&gt;&gt; check.notEqual(1, 1)  # Fails when objects are equal
             Traceback (most recent call last):
                 ...
-            AssertionError: Objects are equal
+            AssertionError: 1 == 1
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 != obj2, msg or &#34;Objects are equal&#34;
+        assert obj1 != obj2, msg or f&#34;{obj1} == {obj2}&#34;
 
     def notDeepEqual(self, obj1, obj2, msg=None):
         &#34;&#34;&#34;
@@ -1757,7 +1787,37 @@ AssertionError: Numbers are not equal!
                 msg or f&#34;Function raised {exception_class.__name__}&#34;
             ) from None
         else:
-            raise AssertionError(msg or &#34;Function did not raise exception&#34;)</code></pre>
+            raise AssertionError(msg or &#34;Function did not raise exception&#34;)
+
+    def typeFromStr(self, obj: any, expected_type: str, msg=None):
+        &#34;&#34;&#34;
+        Asserts that the type of the given object matches the expected type as a string.
+
+        Args:
+            obj (any): The object to check the type of.
+            expected_type (str): The expected type as a string (e.g., &#39;int&#39;, &#39;str&#39;, &#39;list&#39;).
+            msg (str, optional): A custom error message to display if the assertion fails.
+
+        Raises:
+            AssertionError: If the type of `obj` does not match the `expected_type`.
+
+        Examples:
+            &gt;&gt;&gt; check.typeFromStr(42, &#39;int&#39;)
+            &gt;&gt;&gt; check.typeFromStr(&#34;Hello, World!&#34;, &#39;str&#39;)
+            &gt;&gt;&gt; check.typeFromStr([1, 2, 3], &#39;list&#39;)
+            &gt;&gt;&gt; check.typeFromStr(1, &#39;str&#39;)
+            Traceback (most recent call last):
+                ...
+            AssertionError: type(1) is int
+
+        Note:
+            This function checks if the type of `obj` matches the `expected_type` as a string.
+            For example, `typeFromStr(42, &#39;int&#39;)` will pass because the type of 42 is &#39;int&#39;.
+            However, `typeFromStr(42, &#39;str&#39;)` will fail because the type of 42 is &#39;int&#39;.
+
+        &#34;&#34;&#34;
+        actual_type = str(type(obj)).split(&#34;&#39;&#34;)[1]
+        assert actual_type == expected_type, msg or f&#34;type({obj}) is {actual_type}&#34;</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
@@ -1944,7 +2004,7 @@ AssertionError: Objects are not the same (not identical)
 &gt;&gt;&gt; check.equal(1, 2)  # Fails when objects are not equal
 Traceback (most recent call last):
     ...
-AssertionError: Objects are not equal
+AssertionError: 1 != 2
 </code></pre></div>
 <details class="source">
 <summary>
@@ -1967,10 +2027,10 @@ AssertionError: Objects are not equal
         &gt;&gt;&gt; check.equal(1, 2)  # Fails when objects are not equal
         Traceback (most recent call last):
             ...
-        AssertionError: Objects are not equal
+        AssertionError: 1 != 2
     &#34;&#34;&#34;
     self._inc()
-    assert obj1 == obj2, msg or &#34;Objects are not equal&#34;</code></pre>
+    assert obj1 == obj2, msg or f&#34;{obj1} != {obj2}&#34;</code></pre>
 </details>
 </dd>
 <dt id="che.che.Check.isAbove"><code class="name flex">
@@ -3452,7 +3512,7 @@ AssertionError: Objects are the same (identical)
 &gt;&gt;&gt; check.notEqual(1, 1)  # Fails when objects are equal
 Traceback (most recent call last):
     ...
-AssertionError: Objects are equal
+AssertionError: 1 == 1
 </code></pre></div>
 <details class="source">
 <summary>
@@ -3475,10 +3535,10 @@ AssertionError: Objects are equal
         &gt;&gt;&gt; check.notEqual(1, 1)  # Fails when objects are equal
         Traceback (most recent call last):
             ...
-        AssertionError: Objects are equal
+        AssertionError: 1 == 1
     &#34;&#34;&#34;
     self._inc()
-    assert obj1 != obj2, msg or &#34;Objects are equal&#34;</code></pre>
+    assert obj1 != obj2, msg or f&#34;{obj1} == {obj2}&#34;</code></pre>
 </details>
 </dd>
 <dt id="che.che.Check.notIn"><code class="name flex">
@@ -3698,6 +3758,73 @@ want to start a new set of assertions without creating a new instance.</p>
     self._count = 0</code></pre>
 </details>
 </dd>
+<dt id="che.che.Check.typeFromStr"><code class="name flex">
+<span>def <span class="ident">typeFromStr</span></span>(<span>self, obj: <built-in function any>, expected_type: str, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Asserts that the type of the given object matches the expected type as a string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong> :&ensp;<code>any</code></dt>
+<dd>The object to check the type of.</dd>
+<dt><strong><code>expected_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The expected type as a string (e.g., 'int', 'str', 'list').</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>A custom error message to display if the assertion fails.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If the type of <code>obj</code> does not match the <code>expected_type</code>.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; check.typeFromStr(42, 'int')
+&gt;&gt;&gt; check.typeFromStr(&quot;Hello, World!&quot;, 'str')
+&gt;&gt;&gt; check.typeFromStr([1, 2, 3], 'list')
+&gt;&gt;&gt; check.typeFromStr(1, 'str')
+Traceback (most recent call last):
+    ...
+AssertionError: type(1) is int
+</code></pre>
+<h2 id="note">Note</h2>
+<p>This function checks if the type of <code>obj</code> matches the <code>expected_type</code> as a string.
+For example, <code>typeFromStr(42, 'int')</code> will pass because the type of 42 is 'int'.
+However, <code>typeFromStr(42, 'str')</code> will fail because the type of 42 is 'int'.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def typeFromStr(self, obj: any, expected_type: str, msg=None):
+    &#34;&#34;&#34;
+    Asserts that the type of the given object matches the expected type as a string.
+
+    Args:
+        obj (any): The object to check the type of.
+        expected_type (str): The expected type as a string (e.g., &#39;int&#39;, &#39;str&#39;, &#39;list&#39;).
+        msg (str, optional): A custom error message to display if the assertion fails.
+
+    Raises:
+        AssertionError: If the type of `obj` does not match the `expected_type`.
+
+    Examples:
+        &gt;&gt;&gt; check.typeFromStr(42, &#39;int&#39;)
+        &gt;&gt;&gt; check.typeFromStr(&#34;Hello, World!&#34;, &#39;str&#39;)
+        &gt;&gt;&gt; check.typeFromStr([1, 2, 3], &#39;list&#39;)
+        &gt;&gt;&gt; check.typeFromStr(1, &#39;str&#39;)
+        Traceback (most recent call last):
+            ...
+        AssertionError: type(1) is int
+
+    Note:
+        This function checks if the type of `obj` matches the `expected_type` as a string.
+        For example, `typeFromStr(42, &#39;int&#39;)` will pass because the type of 42 is &#39;int&#39;.
+        However, `typeFromStr(42, &#39;str&#39;)` will fail because the type of 42 is &#39;int&#39;.
+
+    &#34;&#34;&#34;
+    actual_type = str(type(obj)).split(&#34;&#39;&#34;)[1]
+    assert actual_type == expected_type, msg or f&#34;type({obj}) is {actual_type}&#34;</code></pre>
+</details>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -3757,6 +3884,7 @@ want to start a new set of assertions without creating a new instance.</p>
 <li><code><a title="che.che.Check.notMatch" href="#che.che.Check.notMatch">notMatch</a></code></li>
 <li><code><a title="che.che.Check.raises" href="#che.che.Check.raises">raises</a></code></li>
 <li><code><a title="che.che.Check.reset" href="#che.che.Check.reset">reset</a></code></li>
+<li><code><a title="che.che.Check.typeFromStr" href="#che.che.Check.typeFromStr">typeFromStr</a></code></li>
 </ul>
 </li>
 </ul>

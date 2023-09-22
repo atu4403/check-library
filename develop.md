@@ -1,3 +1,10 @@
+## Update procedure
+
+1. Increase the version of pyprojyect.toml
+2. create docs
+3. build & publish
+4. `git commit` and push
+
 ## create docs
 
 ```bash

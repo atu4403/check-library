@@ -165,10 +165,10 @@ class Check:
             >>> check.equal(1, 2)  # Fails when objects are not equal
             Traceback (most recent call last):
                 ...
-            AssertionError: Objects are not equal
+            AssertionError: 1 != 2
         """
         self._inc()
-        assert obj1 == obj2, msg or "Objects are not equal"
+        assert obj1 == obj2, msg or f"{obj1} != {obj2}"
 
     def deepEqual(self, obj1, obj2, msg=None):
         """
@@ -211,10 +211,10 @@ class Check:
             >>> check.notEqual(1, 1)  # Fails when objects are equal
             Traceback (most recent call last):
                 ...
-            AssertionError: Objects are equal
+            AssertionError: 1 == 1
         """
         self._inc()
-        assert obj1 != obj2, msg or "Objects are equal"
+        assert obj1 != obj2, msg or f"{obj1} == {obj2}"
 
     def notDeepEqual(self, obj1, obj2, msg=None):
         """
@@ -848,6 +848,36 @@ class Check:
             ) from None
         else:
             raise AssertionError(msg or "Function did not raise exception")
+
+    def typeFromStr(self, obj: any, expected_type: str, msg=None):
+        """
+        Asserts that the type of the given object matches the expected type as a string.
+
+        Args:
+            obj (any): The object to check the type of.
+            expected_type (str): The expected type as a string (e.g., 'int', 'str', 'list').
+            msg (str, optional): A custom error message to display if the assertion fails.
+
+        Raises:
+            AssertionError: If the type of `obj` does not match the `expected_type`.
+
+        Examples:
+            >>> check.typeFromStr(42, 'int')
+            >>> check.typeFromStr("Hello, World!", 'str')
+            >>> check.typeFromStr([1, 2, 3], 'list')
+            >>> check.typeFromStr(1, 'str')
+            Traceback (most recent call last):
+                ...
+            AssertionError: type(1) is int
+
+        Note:
+            This function checks if the type of `obj` matches the `expected_type` as a string.
+            For example, `typeFromStr(42, 'int')` will pass because the type of 42 is 'int'.
+            However, `typeFromStr(42, 'str')` will fail because the type of 42 is 'int'.
+
+        """
+        actual_type = str(type(obj)).split("'")[1]
+        assert actual_type == expected_type, msg or f"type({obj}) is {actual_type}"
 
 
 if __name__ == "__main__":
