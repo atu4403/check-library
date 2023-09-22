@@ -876,6 +876,7 @@ class Check:
             However, `typeFromStr(42, 'str')` will fail because the type of 42 is 'int'.
 
         """
+        self._inc()
         actual_type = str(type(obj)).split("'")[1]
         assert actual_type == expected_type, msg or f"type({obj}) is {actual_type}"
 

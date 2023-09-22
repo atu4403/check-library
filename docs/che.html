@@ -904,6 +904,7 @@ class Check:
             However, `typeFromStr(42, &#39;str&#39;)` will fail because the type of 42 is &#39;int&#39;.
 
         &#34;&#34;&#34;
+        self._inc()
         actual_type = str(type(obj)).split(&#34;&#39;&#34;)[1]
         assert actual_type == expected_type, msg or f&#34;type({obj}) is {actual_type}&#34;
 
@@ -1816,6 +1817,7 @@ AssertionError: Numbers are not equal!
             However, `typeFromStr(42, &#39;str&#39;)` will fail because the type of 42 is &#39;int&#39;.
 
         &#34;&#34;&#34;
+        self._inc()
         actual_type = str(type(obj)).split(&#34;&#39;&#34;)[1]
         assert actual_type == expected_type, msg or f&#34;type({obj}) is {actual_type}&#34;</code></pre>
 </details>
@@ -3821,6 +3823,7 @@ However, <code>typeFromStr(42, 'str')</code> will fail because the type of 42 is
         However, `typeFromStr(42, &#39;str&#39;)` will fail because the type of 42 is &#39;int&#39;.
 
     &#34;&#34;&#34;
+    self._inc()
     actual_type = str(type(obj)).split(&#34;&#39;&#34;)[1]
     assert actual_type == expected_type, msg or f&#34;type({obj}) is {actual_type}&#34;</code></pre>
 </details>
