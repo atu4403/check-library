@@ -2,6 +2,24 @@ import math
 import re
 
 
+def _recursive_dict_diff(dict1, dict2, parent_key=""):
+    diff = {}
+    for key in dict1:
+        if key not in dict2:
+            diff[parent_key + key] = (dict1[key], None)
+        elif isinstance(dict1[key], dict) and isinstance(dict2[key], dict):
+            nested_diff = _recursive_dict_diff(
+                dict1[key], dict2[key], parent_key + key + "."
+            )
+            diff.update(nested_diff)
+        elif dict1[key] != dict2[key]:
+            diff[parent_key + key] = (dict1[key], dict2[key])
+    for key in dict2:
+        if key not in dict1:
+            diff[parent_key + key] = (None, dict2[key])
+    return diff
+
+
 class Check:
     """
     Examples:
@@ -879,6 +897,36 @@ class Check:
         self._inc()
         actual_type = str(type(obj)).split("'")[1]
         assert actual_type == expected_type, msg or f"type({obj}) is {actual_type}"
+
+    def dictEqual(self, d1: dict, d2: dict, msg=None):
+        """
+        Asserts whether two dictionaries, d1 and d2, are equal.
+
+        This method compares the contents of two dictionaries, d1 and d2, and raises
+        an AssertionError if they are not equal. Optionally, a custom error message
+        can be provided using the 'msg' parameter.
+
+        Args:
+            d1 (dict): The first dictionary for comparison.
+            d2 (dict): The second dictionary for comparison.
+            msg (str, optional): A custom error message to be displayed on failure.
+
+        Raises:
+            AssertionError: If d1 and d2 are not equal.
+
+        Example (doctest):
+            >>> dict1 = {'a': 1, 'b': 2}
+            >>> dict2 = {'a': 1, 'b': 2}
+            >>> check.dictEqual(dict1, dict2)
+            >>> dict1 = {'a': 1, 'b': {'c': 3}}
+            >>> dict2 = {'a': 1, 'b': {'c': 4}}
+            >>> check.dictEqual(dict1, dict2)
+            Traceback (most recent call last):
+                ...
+            AssertionError: {'b.c': (3, 4)}
+        """
+        self._inc()
+        assert d1 == d2, msg or str(_recursive_dict_diff(d1, d2))
 
 
 if __name__ == "__main__":

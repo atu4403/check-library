@@ -30,6 +30,24 @@
 import re
 
 
+def _recursive_dict_diff(dict1, dict2, parent_key=&#34;&#34;):
+    diff = {}
+    for key in dict1:
+        if key not in dict2:
+            diff[parent_key + key] = (dict1[key], None)
+        elif isinstance(dict1[key], dict) and isinstance(dict2[key], dict):
+            nested_diff = _recursive_dict_diff(
+                dict1[key], dict2[key], parent_key + key + &#34;.&#34;
+            )
+            diff.update(nested_diff)
+        elif dict1[key] != dict2[key]:
+            diff[parent_key + key] = (dict1[key], dict2[key])
+    for key in dict2:
+        if key not in dict1:
+            diff[parent_key + key] = (None, dict2[key])
+    return diff
+
+
 class Check:
     &#34;&#34;&#34;
     Examples:
@@ -907,6 +925,36 @@ class Check:
         self._inc()
         actual_type = str(type(obj)).split(&#34;&#39;&#34;)[1]
         assert actual_type == expected_type, msg or f&#34;type({obj}) is {actual_type}&#34;
+
+    def dictEqual(self, d1: dict, d2: dict, msg=None):
+        &#34;&#34;&#34;
+        Asserts whether two dictionaries, d1 and d2, are equal.
+
+        This method compares the contents of two dictionaries, d1 and d2, and raises
+        an AssertionError if they are not equal. Optionally, a custom error message
+        can be provided using the &#39;msg&#39; parameter.
+
+        Args:
+            d1 (dict): The first dictionary for comparison.
+            d2 (dict): The second dictionary for comparison.
+            msg (str, optional): A custom error message to be displayed on failure.
+
+        Raises:
+            AssertionError: If d1 and d2 are not equal.
+
+        Example (doctest):
+            &gt;&gt;&gt; dict1 = {&#39;a&#39;: 1, &#39;b&#39;: 2}
+            &gt;&gt;&gt; dict2 = {&#39;a&#39;: 1, &#39;b&#39;: 2}
+            &gt;&gt;&gt; check.dictEqual(dict1, dict2)
+            &gt;&gt;&gt; dict1 = {&#39;a&#39;: 1, &#39;b&#39;: {&#39;c&#39;: 3}}
+            &gt;&gt;&gt; dict2 = {&#39;a&#39;: 1, &#39;b&#39;: {&#39;c&#39;: 4}}
+            &gt;&gt;&gt; check.dictEqual(dict1, dict2)
+            Traceback (most recent call last):
+                ...
+            AssertionError: {&#39;b.c&#39;: (3, 4)}
+        &#34;&#34;&#34;
+        self._inc()
+        assert d1 == d2, msg or str(_recursive_dict_diff(d1, d2))
 
 
 if __name__ == &#34;__main__&#34;:
@@ -1819,7 +1867,37 @@ AssertionError: Numbers are not equal!
         &#34;&#34;&#34;
         self._inc()
         actual_type = str(type(obj)).split(&#34;&#39;&#34;)[1]
-        assert actual_type == expected_type, msg or f&#34;type({obj}) is {actual_type}&#34;</code></pre>
+        assert actual_type == expected_type, msg or f&#34;type({obj}) is {actual_type}&#34;
+
+    def dictEqual(self, d1: dict, d2: dict, msg=None):
+        &#34;&#34;&#34;
+        Asserts whether two dictionaries, d1 and d2, are equal.
+
+        This method compares the contents of two dictionaries, d1 and d2, and raises
+        an AssertionError if they are not equal. Optionally, a custom error message
+        can be provided using the &#39;msg&#39; parameter.
+
+        Args:
+            d1 (dict): The first dictionary for comparison.
+            d2 (dict): The second dictionary for comparison.
+            msg (str, optional): A custom error message to be displayed on failure.
+
+        Raises:
+            AssertionError: If d1 and d2 are not equal.
+
+        Example (doctest):
+            &gt;&gt;&gt; dict1 = {&#39;a&#39;: 1, &#39;b&#39;: 2}
+            &gt;&gt;&gt; dict2 = {&#39;a&#39;: 1, &#39;b&#39;: 2}
+            &gt;&gt;&gt; check.dictEqual(dict1, dict2)
+            &gt;&gt;&gt; dict1 = {&#39;a&#39;: 1, &#39;b&#39;: {&#39;c&#39;: 3}}
+            &gt;&gt;&gt; dict2 = {&#39;a&#39;: 1, &#39;b&#39;: {&#39;c&#39;: 4}}
+            &gt;&gt;&gt; check.dictEqual(dict1, dict2)
+            Traceback (most recent call last):
+                ...
+            AssertionError: {&#39;b.c&#39;: (3, 4)}
+        &#34;&#34;&#34;
+        self._inc()
+        assert d1 == d2, msg or str(_recursive_dict_diff(d1, d2))</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
@@ -1980,6 +2058,73 @@ AssertionError: Objects are not the same (not identical)
     &#34;&#34;&#34;
     self._inc()
     assert obj1 is obj2, msg or &#34;Objects are not the same (not identical)&#34;</code></pre>
+</details>
+</dd>
+<dt id="che.che.Check.dictEqual"><code class="name flex">
+<span>def <span class="ident">dictEqual</span></span>(<span>self, d1: dict, d2: dict, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Asserts whether two dictionaries, d1 and d2, are equal.</p>
+<p>This method compares the contents of two dictionaries, d1 and d2, and raises
+an AssertionError if they are not equal. Optionally, a custom error message
+can be provided using the 'msg' parameter.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>d1</code></strong> :&ensp;<code>dict</code></dt>
+<dd>The first dictionary for comparison.</dd>
+<dt><strong><code>d2</code></strong> :&ensp;<code>dict</code></dt>
+<dd>The second dictionary for comparison.</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>A custom error message to be displayed on failure.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AssertionError</code></dt>
+<dd>If d1 and d2 are not equal.</dd>
+</dl>
+<p>Example (doctest):
+&gt;&gt;&gt; dict1 = {'a': 1, 'b': 2}
+&gt;&gt;&gt; dict2 = {'a': 1, 'b': 2}
+&gt;&gt;&gt; check.dictEqual(dict1, dict2)
+&gt;&gt;&gt; dict1 = {'a': 1, 'b': {'c': 3}}
+&gt;&gt;&gt; dict2 = {'a': 1, 'b': {'c': 4}}
+&gt;&gt;&gt; check.dictEqual(dict1, dict2)
+Traceback (most recent call last):
+&hellip;
+AssertionError: {'b.c': (3, 4)}</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dictEqual(self, d1: dict, d2: dict, msg=None):
+    &#34;&#34;&#34;
+    Asserts whether two dictionaries, d1 and d2, are equal.
+
+    This method compares the contents of two dictionaries, d1 and d2, and raises
+    an AssertionError if they are not equal. Optionally, a custom error message
+    can be provided using the &#39;msg&#39; parameter.
+
+    Args:
+        d1 (dict): The first dictionary for comparison.
+        d2 (dict): The second dictionary for comparison.
+        msg (str, optional): A custom error message to be displayed on failure.
+
+    Raises:
+        AssertionError: If d1 and d2 are not equal.
+
+    Example (doctest):
+        &gt;&gt;&gt; dict1 = {&#39;a&#39;: 1, &#39;b&#39;: 2}
+        &gt;&gt;&gt; dict2 = {&#39;a&#39;: 1, &#39;b&#39;: 2}
+        &gt;&gt;&gt; check.dictEqual(dict1, dict2)
+        &gt;&gt;&gt; dict1 = {&#39;a&#39;: 1, &#39;b&#39;: {&#39;c&#39;: 3}}
+        &gt;&gt;&gt; dict2 = {&#39;a&#39;: 1, &#39;b&#39;: {&#39;c&#39;: 4}}
+        &gt;&gt;&gt; check.dictEqual(dict1, dict2)
+        Traceback (most recent call last):
+            ...
+        AssertionError: {&#39;b.c&#39;: (3, 4)}
+    &#34;&#34;&#34;
+    self._inc()
+    assert d1 == d2, msg or str(_recursive_dict_diff(d1, d2))</code></pre>
 </details>
 </dd>
 <dt id="che.che.Check.equal"><code class="name flex">
@@ -3852,6 +3997,7 @@ However, <code>typeFromStr(42, 'str')</code> will fail because the type of 42 is
 <li><code><a title="che.che.Check.In" href="#che.che.Check.In">In</a></code></li>
 <li><code><a title="che.che.Check.assert_calls" href="#che.che.Check.assert_calls">assert_calls</a></code></li>
 <li><code><a title="che.che.Check.deepEqual" href="#che.che.Check.deepEqual">deepEqual</a></code></li>
+<li><code><a title="che.che.Check.dictEqual" href="#che.che.Check.dictEqual">dictEqual</a></code></li>
 <li><code><a title="che.che.Check.equal" href="#che.che.Check.equal">equal</a></code></li>
 <li><code><a title="che.che.Check.isAbove" href="#che.che.Check.isAbove">isAbove</a></code></li>
 <li><code><a title="che.che.Check.isAboveOrEqual" href="#che.che.Check.isAboveOrEqual">isAboveOrEqual</a></code></li>
