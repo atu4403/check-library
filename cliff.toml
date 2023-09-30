@@ -9,7 +9,7 @@
 # changelog header
 header = """
 # Changelog\n
-このプロジェクトに対するすべての重要な変更は、このファイルに文書化されます。\n
+All notable changes to this project will be documented in this file.\n
 """
 # template for the changelog body
 # https://tera.netlify.app/docs
@@ -23,6 +23,7 @@ body = """
     ### {{ group | upper_first }}
     {% for commit in commits %}
         - {% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message | upper_first }}\
+        {% if commit.body %}\n\n{{ commit.body | trim_start }}{% endif %}\
     {% endfor %}
 {% endfor %}\n
 """
@@ -42,7 +43,12 @@ filter_unconventional = true
 # process each line of a commit as an individual commit
 split_commits = false
 # regex for preprocessing the commit messages
-commit_preprocessors = [{ pattern = "[🆕🐛👻📖📐🧹✨🏃〽📥]\\s+", replace = "" }]
+commit_preprocessors = [
+  { pattern = "^[🆕🐛👻📖📐🧹✨🏃〽📥]\\s+", replace = "" },
+  { pattern = "add: (\\w+)", replace = "feat: add method $1" },
+  # { pattern = "^(.*)(\n.*)+", replace = "$1" },
+  { pattern = "^(.*\n)", replace = "$1\n" },
+]
 # regex for parsing and grouping commits
 commit_parsers = [
   { message = "^feat", group = "✨ Features" },

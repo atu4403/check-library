@@ -3,7 +3,7 @@
 # Get project name from pyproject.toml
 PROJECT_NAME=$(shell grep name pyproject.toml | head -n 1 | awk -F= '{print $$2}' | xargs)
 # Get the current version using `rye version`
-NEW_VERSION=$(shell rye version)
+NEW_VERSION=v$(shell rye version)
 
 # Step 1: Create PR
 release-step1: build gen-docs gen-changelog commit create-pr
@@ -43,9 +43,8 @@ pull-main:
 	git pull origin main
 
 tag-version:
-	$(eval TAG_NAME := v$(NEW_VERSION))
-	git tag $(TAG_NAME)
-	git push origin $(TAG_NAME)
+	git tag $(NEW_VERSION)
+	git push origin $(NEW_VERSION)
 
 delete-branch:
 	git branch -D pre-release
