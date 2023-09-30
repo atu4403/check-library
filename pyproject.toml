@@ -1,7 +1,7 @@
 [project]
 name = "che"
-version = "0.4.0"
-description = "Add your description here"
+version = "0.5.0"
+description = "The Check library is a Python-based assertion framework designed to simplify the validation process in tests. It offers a wide range of assertion methods that provide clear and informative failure messages."
 authors = [
     { name = "atu4403", email = "73111778+atu4403@users.noreply.github.com" },
 ]
