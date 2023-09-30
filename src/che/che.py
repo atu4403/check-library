@@ -275,10 +275,10 @@ class Check:
             >>> check.isAbove(1, 2)  # Fails when obj1 is not greater than obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is below
+            AssertionError: 1 <= 2
         """
         self._inc()
-        assert obj1 > obj2, msg or "Object is below"
+        assert obj1 > obj2, msg or f"{obj1} <= {obj2}"
 
     def isBelow(self, obj1, obj2, msg=None):
         """
@@ -297,10 +297,10 @@ class Check:
             >>> check.isBelow(2, 1)  # Fails when obj1 is not less than obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is above
+            AssertionError: 2 >= 1
         """
         self._inc()
-        assert obj1 < obj2, msg or "Object is above"
+        assert obj1 < obj2, msg or f"{obj1} >= {obj2}"
 
     def isAboveOrEqual(self, obj1, obj2, msg=None):
         """
@@ -319,10 +319,10 @@ class Check:
             >>> check.isAboveOrEqual(1, 2)  # Fails when obj1 is not greater than or equal to obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is below
+            AssertionError: 1 < 2
         """
         self._inc()
-        assert obj1 >= obj2, msg or "Object is below"
+        assert obj1 >= obj2, msg or f"{obj1} < {obj2}"
 
     def isBelowOrEqual(self, obj1, obj2, msg=None):
         """
@@ -341,10 +341,10 @@ class Check:
             >>> check.isBelowOrEqual(2, 1)  # Fails when obj1 is not less than or equal to obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is above
+            AssertionError: 2 > 1
         """
         self._inc()
-        assert obj1 <= obj2, msg or "Object is above"
+        assert obj1 <= obj2, msg or f"{obj1} > {obj2}"
 
     def isTrue(self, obj, msg=None):
         """
@@ -362,10 +362,10 @@ class Check:
             >>> check.isTrue(False)  # Fails when object is not True
             Traceback (most recent call last):
                 ...
-            AssertionError: Object not True
+            AssertionError: False not True
         """
         self._inc()
-        assert obj is True, msg or "Object not True"
+        assert obj is True, msg or f"{obj} not True"
 
     def isFalse(self, obj, msg=None):
         """
@@ -383,10 +383,10 @@ class Check:
             >>> check.isFalse(True)  # Fails when object is not False
             Traceback (most recent call last):
                 ...
-            AssertionError: Object not False
+            AssertionError: True not False
         """
         self._inc()
-        assert obj is False, msg or "Object not False"
+        assert obj is False, msg or f"{obj} not False"
 
     def isZero(self, obj, msg=None):
         """
