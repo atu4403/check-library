@@ -303,10 +303,10 @@ class Check:
             &gt;&gt;&gt; check.isAbove(1, 2)  # Fails when obj1 is not greater than obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is below
+            AssertionError: 1 &lt;= 2
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 &gt; obj2, msg or &#34;Object is below&#34;
+        assert obj1 &gt; obj2, msg or f&#34;{obj1} &lt;= {obj2}&#34;
 
     def isBelow(self, obj1, obj2, msg=None):
         &#34;&#34;&#34;
@@ -325,10 +325,10 @@ class Check:
             &gt;&gt;&gt; check.isBelow(2, 1)  # Fails when obj1 is not less than obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is above
+            AssertionError: 2 &gt;= 1
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 &lt; obj2, msg or &#34;Object is above&#34;
+        assert obj1 &lt; obj2, msg or f&#34;{obj1} &gt;= {obj2}&#34;
 
     def isAboveOrEqual(self, obj1, obj2, msg=None):
         &#34;&#34;&#34;
@@ -347,10 +347,10 @@ class Check:
             &gt;&gt;&gt; check.isAboveOrEqual(1, 2)  # Fails when obj1 is not greater than or equal to obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is below
+            AssertionError: 1 &lt; 2
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 &gt;= obj2, msg or &#34;Object is below&#34;
+        assert obj1 &gt;= obj2, msg or f&#34;{obj1} &lt; {obj2}&#34;
 
     def isBelowOrEqual(self, obj1, obj2, msg=None):
         &#34;&#34;&#34;
@@ -369,10 +369,10 @@ class Check:
             &gt;&gt;&gt; check.isBelowOrEqual(2, 1)  # Fails when obj1 is not less than or equal to obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is above
+            AssertionError: 2 &gt; 1
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 &lt;= obj2, msg or &#34;Object is above&#34;
+        assert obj1 &lt;= obj2, msg or f&#34;{obj1} &gt; {obj2}&#34;
 
     def isTrue(self, obj, msg=None):
         &#34;&#34;&#34;
@@ -390,10 +390,10 @@ class Check:
             &gt;&gt;&gt; check.isTrue(False)  # Fails when object is not True
             Traceback (most recent call last):
                 ...
-            AssertionError: Object not True
+            AssertionError: False not True
         &#34;&#34;&#34;
         self._inc()
-        assert obj is True, msg or &#34;Object not True&#34;
+        assert obj is True, msg or f&#34;{obj} not True&#34;
 
     def isFalse(self, obj, msg=None):
         &#34;&#34;&#34;
@@ -411,10 +411,10 @@ class Check:
             &gt;&gt;&gt; check.isFalse(True)  # Fails when object is not False
             Traceback (most recent call last):
                 ...
-            AssertionError: Object not False
+            AssertionError: True not False
         &#34;&#34;&#34;
         self._inc()
-        assert obj is False, msg or &#34;Object not False&#34;
+        assert obj is False, msg or f&#34;{obj} not False&#34;
 
     def isZero(self, obj, msg=None):
         &#34;&#34;&#34;
@@ -1246,10 +1246,10 @@ AssertionError: Numbers are not equal!
             &gt;&gt;&gt; check.isAbove(1, 2)  # Fails when obj1 is not greater than obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is below
+            AssertionError: 1 &lt;= 2
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 &gt; obj2, msg or &#34;Object is below&#34;
+        assert obj1 &gt; obj2, msg or f&#34;{obj1} &lt;= {obj2}&#34;
 
     def isBelow(self, obj1, obj2, msg=None):
         &#34;&#34;&#34;
@@ -1268,10 +1268,10 @@ AssertionError: Numbers are not equal!
             &gt;&gt;&gt; check.isBelow(2, 1)  # Fails when obj1 is not less than obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is above
+            AssertionError: 2 &gt;= 1
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 &lt; obj2, msg or &#34;Object is above&#34;
+        assert obj1 &lt; obj2, msg or f&#34;{obj1} &gt;= {obj2}&#34;
 
     def isAboveOrEqual(self, obj1, obj2, msg=None):
         &#34;&#34;&#34;
@@ -1290,10 +1290,10 @@ AssertionError: Numbers are not equal!
             &gt;&gt;&gt; check.isAboveOrEqual(1, 2)  # Fails when obj1 is not greater than or equal to obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is below
+            AssertionError: 1 &lt; 2
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 &gt;= obj2, msg or &#34;Object is below&#34;
+        assert obj1 &gt;= obj2, msg or f&#34;{obj1} &lt; {obj2}&#34;
 
     def isBelowOrEqual(self, obj1, obj2, msg=None):
         &#34;&#34;&#34;
@@ -1312,10 +1312,10 @@ AssertionError: Numbers are not equal!
             &gt;&gt;&gt; check.isBelowOrEqual(2, 1)  # Fails when obj1 is not less than or equal to obj2
             Traceback (most recent call last):
                 ...
-            AssertionError: Object is above
+            AssertionError: 2 &gt; 1
         &#34;&#34;&#34;
         self._inc()
-        assert obj1 &lt;= obj2, msg or &#34;Object is above&#34;
+        assert obj1 &lt;= obj2, msg or f&#34;{obj1} &gt; {obj2}&#34;
 
     def isTrue(self, obj, msg=None):
         &#34;&#34;&#34;
@@ -1333,10 +1333,10 @@ AssertionError: Numbers are not equal!
             &gt;&gt;&gt; check.isTrue(False)  # Fails when object is not True
             Traceback (most recent call last):
                 ...
-            AssertionError: Object not True
+            AssertionError: False not True
         &#34;&#34;&#34;
         self._inc()
-        assert obj is True, msg or &#34;Object not True&#34;
+        assert obj is True, msg or f&#34;{obj} not True&#34;
 
     def isFalse(self, obj, msg=None):
         &#34;&#34;&#34;
@@ -1354,10 +1354,10 @@ AssertionError: Numbers are not equal!
             &gt;&gt;&gt; check.isFalse(True)  # Fails when object is not False
             Traceback (most recent call last):
                 ...
-            AssertionError: Object not False
+            AssertionError: True not False
         &#34;&#34;&#34;
         self._inc()
-        assert obj is False, msg or &#34;Object not False&#34;
+        assert obj is False, msg or f&#34;{obj} not False&#34;
 
     def isZero(self, obj, msg=None):
         &#34;&#34;&#34;
@@ -2204,7 +2204,7 @@ AssertionError: 1 != 2
 &gt;&gt;&gt; check.isAbove(1, 2)  # Fails when obj1 is not greater than obj2
 Traceback (most recent call last):
     ...
-AssertionError: Object is below
+AssertionError: 1 &lt;= 2
 </code></pre></div>
 <details class="source">
 <summary>
@@ -2227,10 +2227,10 @@ AssertionError: Object is below
         &gt;&gt;&gt; check.isAbove(1, 2)  # Fails when obj1 is not greater than obj2
         Traceback (most recent call last):
             ...
-        AssertionError: Object is below
+        AssertionError: 1 &lt;= 2
     &#34;&#34;&#34;
     self._inc()
-    assert obj1 &gt; obj2, msg or &#34;Object is below&#34;</code></pre>
+    assert obj1 &gt; obj2, msg or f&#34;{obj1} &lt;= {obj2}&#34;</code></pre>
 </details>
 </dd>
 <dt id="che.che.Check.isAboveOrEqual"><code class="name flex">
@@ -2257,7 +2257,7 @@ AssertionError: Object is below
 &gt;&gt;&gt; check.isAboveOrEqual(1, 2)  # Fails when obj1 is not greater than or equal to obj2
 Traceback (most recent call last):
     ...
-AssertionError: Object is below
+AssertionError: 1 &lt; 2
 </code></pre></div>
 <details class="source">
 <summary>
@@ -2280,10 +2280,10 @@ AssertionError: Object is below
         &gt;&gt;&gt; check.isAboveOrEqual(1, 2)  # Fails when obj1 is not greater than or equal to obj2
         Traceback (most recent call last):
             ...
-        AssertionError: Object is below
+        AssertionError: 1 &lt; 2
     &#34;&#34;&#34;
     self._inc()
-    assert obj1 &gt;= obj2, msg or &#34;Object is below&#34;</code></pre>
+    assert obj1 &gt;= obj2, msg or f&#34;{obj1} &lt; {obj2}&#34;</code></pre>
 </details>
 </dd>
 <dt id="che.che.Check.isBelow"><code class="name flex">
@@ -2310,7 +2310,7 @@ AssertionError: Object is below
 &gt;&gt;&gt; check.isBelow(2, 1)  # Fails when obj1 is not less than obj2
 Traceback (most recent call last):
     ...
-AssertionError: Object is above
+AssertionError: 2 &gt;= 1
 </code></pre></div>
 <details class="source">
 <summary>
@@ -2333,10 +2333,10 @@ AssertionError: Object is above
         &gt;&gt;&gt; check.isBelow(2, 1)  # Fails when obj1 is not less than obj2
         Traceback (most recent call last):
             ...
-        AssertionError: Object is above
+        AssertionError: 2 &gt;= 1
     &#34;&#34;&#34;
     self._inc()
-    assert obj1 &lt; obj2, msg or &#34;Object is above&#34;</code></pre>
+    assert obj1 &lt; obj2, msg or f&#34;{obj1} &gt;= {obj2}&#34;</code></pre>
 </details>
 </dd>
 <dt id="che.che.Check.isBelowOrEqual"><code class="name flex">
@@ -2363,7 +2363,7 @@ AssertionError: Object is above
 &gt;&gt;&gt; check.isBelowOrEqual(2, 1)  # Fails when obj1 is not less than or equal to obj2
 Traceback (most recent call last):
     ...
-AssertionError: Object is above
+AssertionError: 2 &gt; 1
 </code></pre></div>
 <details class="source">
 <summary>
@@ -2386,10 +2386,10 @@ AssertionError: Object is above
         &gt;&gt;&gt; check.isBelowOrEqual(2, 1)  # Fails when obj1 is not less than or equal to obj2
         Traceback (most recent call last):
             ...
-        AssertionError: Object is above
+        AssertionError: 2 &gt; 1
     &#34;&#34;&#34;
     self._inc()
-    assert obj1 &lt;= obj2, msg or &#34;Object is above&#34;</code></pre>
+    assert obj1 &lt;= obj2, msg or f&#34;{obj1} &gt; {obj2}&#34;</code></pre>
 </details>
 </dd>
 <dt id="che.che.Check.isBinary"><code class="name flex">
@@ -2669,7 +2669,7 @@ AssertionError: sub_dict is not in main_dict
 &gt;&gt;&gt; check.isFalse(True)  # Fails when object is not False
 Traceback (most recent call last):
     ...
-AssertionError: Object not False
+AssertionError: True not False
 </code></pre></div>
 <details class="source">
 <summary>
@@ -2691,10 +2691,10 @@ AssertionError: Object not False
         &gt;&gt;&gt; check.isFalse(True)  # Fails when object is not False
         Traceback (most recent call last):
             ...
-        AssertionError: Object not False
+        AssertionError: True not False
     &#34;&#34;&#34;
     self._inc()
-    assert obj is False, msg or &#34;Object not False&#34;</code></pre>
+    assert obj is False, msg or f&#34;{obj} not False&#34;</code></pre>
 </details>
 </dd>
 <dt id="che.che.Check.isFloat"><code class="name flex">
@@ -3431,7 +3431,7 @@ AssertionError: Object is not a string
 &gt;&gt;&gt; check.isTrue(False)  # Fails when object is not True
 Traceback (most recent call last):
     ...
-AssertionError: Object not True
+AssertionError: False not True
 </code></pre></div>
 <details class="source">
 <summary>
@@ -3453,10 +3453,10 @@ AssertionError: Object not True
         &gt;&gt;&gt; check.isTrue(False)  # Fails when object is not True
         Traceback (most recent call last):
             ...
-        AssertionError: Object not True
+        AssertionError: False not True
     &#34;&#34;&#34;
     self._inc()
-    assert obj is True, msg or &#34;Object not True&#34;</code></pre>
+    assert obj is True, msg or f&#34;{obj} not True&#34;</code></pre>
 </details>
 </dd>
 <dt id="che.che.Check.isZero"><code class="name flex">
