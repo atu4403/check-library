@@ -22,8 +22,7 @@ body = """
 {% for group, commits in commits | group_by(attribute="group") %}
     ### {{ group | upper_first }}
     {% for commit in commits %}
-        - {% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message | upper_first }}\
-        {% if commit.body %}\n\n{{ commit.body | trim_start }}{% endif %}\
+        * {% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message | upper_first }}\
     {% endfor %}
 {% endfor %}\n
 """
@@ -45,15 +44,15 @@ split_commits = false
 # regex for preprocessing the commit messages
 commit_preprocessors = [
   { pattern = "^[🆕🐛👻📖📐🧹✨🏃〽📥]\\s+", replace = "" },
-  { pattern = "add: (\\w+)", replace = "feat: add method $1" },
+  { pattern = "add: (\\w+)", replace = "feat: 🌟 add method $1" },
   # { pattern = "^(.*)(\n.*)+", replace = "$1" },
   { pattern = "^(.*\n)", replace = "$1\n" },
 ]
 # regex for parsing and grouping commits
 commit_parsers = [
-  { message = "^feat", group = "✨ Features" },
-  { message = "^fix", group = "🐛 Bug Fixes" },
-  { message = "^doc", group = "📖 Documentation" },
+  { message = "^feat", group = "Features" },
+  { message = "^fix", group = "Bug Fixes" },
+  { message = "^doc", group = "Documentation" },
   { message = "^perf", group = "Performance" },
   { message = "^refactor", group = "🧹 Refactor" },
   { message = "^style", group = "Styling" },
