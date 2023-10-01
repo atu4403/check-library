@@ -6,10 +6,7 @@ PROJECT_NAME=$(shell grep name pyproject.toml | head -n 1 | awk -F= '{print $$2}
 NEW_VERSION=v$(shell rye version)
 
 # Step 1: Create PR
-release-step1: build gen-docs gen-changelog commit create-pr
-
-build:
-	rye build -c
+release-step1: gen-docs gen-changelog commit create-pr
 
 gen-docs:
 	pdoc --html --output-dir=docs --force $(PROJECT_NAME)
@@ -29,7 +26,7 @@ create-pr:
 
 
 # Step 2: Merge PR, tag, and cleanup
-release-step2: approve-pr merge-pr pull-main tag-version delete-branch publish create-dev-branch
+release-step2: merge-pr pull-main tag-version publish create-dev-branch
 
 merge-pr:
 	gh pr merge $(shell cat pr_id.txt) --merge --delete-branch
@@ -46,13 +43,9 @@ tag-version:
 	git tag $(NEW_VERSION)
 	git push origin $(NEW_VERSION)
 
-delete-branch:
-	git branch -D pre-release
-
 publish:
-	rye publish
+	rye build -c && rye publish
 
 create-dev-branch:
 	$(eval NEW_DEV_BRANCH := dev-after-$(NEW_VERSION))
 	git checkout -b $(NEW_DEV_BRANCH)
-
